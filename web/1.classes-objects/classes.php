@@ -7,7 +7,7 @@ class A
         if (isset($this)) {
             echo '$this is defined (';
             echo get_class($this);
-            echo ")\n";
+            echo ")\n". '<br>';
         } else {
             echo "\$this is not defined.\n";
         }
