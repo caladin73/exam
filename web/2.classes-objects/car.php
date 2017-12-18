@@ -6,36 +6,37 @@
  * Time: 13:34
  */
 
-class Car
-{
+class Car {
 
     private $model;
+    private $color;
+    public static $power;
 
-    public function __construct($model)
+    public function __construct($model, $color)
     {
         $this->model = $model;
+        $this->color = $color;
     }
-
-    public function setModel($model)
-    {
-        $this->model = $model;
-    }
-
-    public function getModel()
-    {
-        return $this->model;
-    }
-
 
     public function showCars()
     {
         echo "<dl>";
         echo "<dt>Model:</dt><dd>$this->model</dd >";
+        echo "<dt>Color:</dt><dd>$this->color</dd >";
+        echo "<dt>Horse Power:</dt><dd>". self::$power. "</dd >";
+    }
 
+    public static function getPowers()
+    {
+        return self::$power;
     }
 }
 
-$aCar = new Car( "Audi");
+Car::$power = 100;
+$aCar = new Car( "Audi", "Blue");
 $aCar->showCars();
+
+
+
 
 ?>
