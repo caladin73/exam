@@ -25,19 +25,21 @@ class Car {
         echo "<dl>";
         echo "<dt>Model:</dt><dd>$this->model</dd >";
         echo "<dt>Color:</dt><dd>$this->color</dd >";
-        echo "<dt>Power:</dt><dd>$this->power</dd >";
-        //echo "<dt>Horse Power:</dt><dd>". self::$power. "</dd >";
+        echo "<dt>Horse Power:</dt><dd>". self::$power. "</dd >";
+        echo "<dt>Horse Power:</dt><dd>". self::$power. "</dd >";
+        echo "</dl>";
     }
 
 }
 
-//Car::$power = 200;
-
-$aCar = new Car( "Audi", "Blue");
+Car::$power = 200;
+$aCar = new Car( "Mercedes", "Green");
 $aCar->showCars();
-
-//echo self::$power;
-//echo Car::$power;
+$aCar = new Car( "BMW", "Blue");
+$aCar->showCars();
+$aCar = new Car( "Audi", "Orange");
+car::$power = 240;
+$aCar->showCars();
 
 
 
