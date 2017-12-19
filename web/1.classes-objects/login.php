@@ -26,11 +26,22 @@ class Member
 }
 
 $member = new Member();
-$member->username = "Fred";
+$member->username = "Peter";
+
 echo $member->username . " is " . ( $member->isLoggedIn() ? "logged in" : "logged out" ) . "<br>";
 $member->login();
 echo $member->username . " is " . ( $member->isLoggedIn() ? "logged in" : "logged out" ) . "<br>";
 $member->logout();
 echo $member->username . " is " . ( $member->isLoggedIn() ? "logged in" : "logged out" ) . "<br>";
+
+/*
+this will output:
+Peter is logged out
+Peter is logged in
+Peter is logged out
+
+?: used in the example above is the ternary operator. It's like a compact version of an if ... else statement.
+*/
+
 
 ?>
