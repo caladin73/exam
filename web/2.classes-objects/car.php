@@ -12,10 +12,11 @@ class Car {
     private $color;
     public static $power;
 
-    public function __construct($model, $color)
+    public function __construct($model, $color, $power)
     {
         $this->model = $model;
         $this->color = $color;
+        $this->power = $power;
     }
 
     public function showCars()
@@ -32,7 +33,7 @@ class Car {
     }
 }
 
-Car::$power = 100;
+//Car::$power = 100;
 $aCar = new Car( "Audi", "Blue");
 $aCar->showCars();
 
