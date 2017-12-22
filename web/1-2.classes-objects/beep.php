@@ -10,7 +10,7 @@
 class Car {
 
     // properties
-    public $comp;
+    public $company;
     public $color = 'beige';
     public $hasSunRoof = true;
 
@@ -25,30 +25,25 @@ class Car {
 $bmw = new Car ();
 $mercedes = new Car ();
 
-// Get the values
-echo $bmw -> color; // beige
-echo "<br />";
-echo $mercedes -> color; // beige
-echo "<hr />";
-
 // Set the values
-$bmw -> color = 'blue';
-$bmw -> comp = "BMW";
-$mercedes -> comp = "Mercedes Benz";
+$mercedes -> color = "Green";
+$mercedes -> company = "Mercedes Benz";
 
-// Get the values again
-echo $bmw -> color; // blue
-echo "<br />";
-echo $mercedes -> color; // beige
-echo "<br />";
-echo $bmw -> comp; // BMW
-echo "<br />";
-echo $mercedes -> comp; // Mercedes Benz
-echo "<hr />";
+$bmw -> company = "BMW";
+$bmw -> color = 'Blue';
+$bmw -> hasSunRoof = false; //change the default value of sunroof from true to false
+
+//get the values
+echo "Company: " . $mercedes -> company. "<br>"; // BMW
+echo $mercedes -> color ."<br>"; // blue
+echo 'Has sunroof: '.(boolval($mercedes -> hasSunRoof) ? 'true' : 'false'). "<br><br>"; //uses an
+
+echo "Company: " . $bmw -> company. "<br>"; // BMW
+echo $bmw -> color ."<br>"; // blue
+echo 'Has sunroof: '.(boolval($bmw -> hasSunRoof) ? 'true' : 'false'). "<br><br>";
 
 // Use the methods to get a beep
-echo $bmw -> hello(); // beep
-echo "<br />";
+echo $bmw -> hello(). "<br>"; // beep
 echo $mercedes -> hello(); // beep
 
 ?>
