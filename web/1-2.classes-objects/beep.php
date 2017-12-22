@@ -15,7 +15,7 @@ class Car {
     public $hasSunRoof = true;
 }
 
-// Create an instance
+// Create instances (object)
 $bmw = new Car ();
 $mercedes = new Car ();
 

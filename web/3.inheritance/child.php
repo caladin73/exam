@@ -20,7 +20,7 @@ class Car {
 
     public function getModel()
     {
-        return $this -> model;
+        return $this->model;
     }
 }
 
@@ -33,7 +33,7 @@ class SportsCar extends Car{
 
     public function driveItWithStyle() //added method in child class
     {
-        return 'Drive a '  . $this -> getModel() . ' <i>' . $this -> style . '</i>';
+        return 'Drive a '  . $this->getModel() . ' <i>' . $this->style . '</i>';
     }
 }
 
@@ -42,9 +42,9 @@ class SportsCar extends Car{
 $sportsCar1 = new SportsCar();
 
 // Use a method that the child class inherited from the parent class
-$sportsCar1 -> setModel('Ferrari');
+$sportsCar1->setModel('Ferrari');
 
 // Use a method that was added to the child class
-echo $sportsCar1 -> driveItWithStyle();
+echo $sportsCar1->driveItWithStyle();
 
 ?>

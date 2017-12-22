@@ -24,7 +24,6 @@ abstract class AuthA implements AuthI {
     }
     
     public static function isAdministrator() {
-        
     }
 
     public static function logout() {

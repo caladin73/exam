@@ -34,10 +34,8 @@ $member = new Member();
 $member->username = "Peter";
 
 // check if member is logged in = false
+// ?: used in the example is the ternary operator. It's like a compact version of an if ... else statement.
 echo $member->username . " is " . ( $member->isLoggedIn() ? "logged in" : "logged out" ) . "<br>";
-// ?: used in the example above is the ternary operator. It's like a compact version of an if ... else statement.
-
-
 
 // login member
 $member->login();
@@ -57,6 +55,4 @@ Peter is logged out
 Peter is logged in
 Peter is logged out
 */
-
-
 ?>

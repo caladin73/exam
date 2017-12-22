@@ -9,7 +9,7 @@
 // The parent class has hello method that returns "beep".
 
 class Car {
-    final public function hello()
+    public function hello()
     {
         return "beep";
     }
@@ -30,6 +30,6 @@ $sportsCar1 = new SportsCar();
 //Get the result of the hello method
 echo $sportsCar1 -> hello();
 
-// Fatal error: Cannot override final method
+// we can advoid this by using Final in parent class!
 
 ?>

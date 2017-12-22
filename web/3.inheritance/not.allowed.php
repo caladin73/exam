@@ -9,13 +9,13 @@
 // The parent class
 class Car {
     //The $model property is private, thus it can be accessed only from inside the class
-    private $model;
+    private $model; //can't not do, use protected
     //protected $model;
 
     //Public setter method
     public function setModel($model)
     {
-        $this -> model = $model;
+        $this->model = $model;
     }
 }
 
@@ -26,7 +26,7 @@ class SportsCar extends Car{
     //Tries to get a private property that belongs to the parent
     public function hello()
     {
-        return "beep! I am a <i>" . $this -> model . "</i><br />";
+        return "beep! I am a <i>" . $this->model . "</i><br />";
     }
 }
 

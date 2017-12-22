@@ -20,26 +20,15 @@ class exampleClass
     {
         echo $this->bar;
     }
-
-/*
-    public static function anotherStatFn()
-    {
-        self::staticFunction();
-    }
-
-    public function regularFnUsingStaticVar()
-    {
-        echo self::$foo;
-    }
-*/
-    // NOTE: As of PHP 5.3 using $this::$bar instead of self::$bar is allowed
 }
 
-// static method
+// static method ::self
 exampleClass::$foo = "Hello";
 exampleClass::staticFunction(); /* prints Hello */
 
-// regular method as $obj->bar
+// regular method as $obj->bar, by creating and instance
 $obj = new exampleClass();
 $obj->bar = "World!";
 $obj->regularFunction(); /* prints World! */
+
+// NOTE: As of PHP 5.3 using $this::$bar instead of self::$bar is allowed
