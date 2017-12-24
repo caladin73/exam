@@ -6,42 +6,48 @@
  * Time: 15:44
  */
 
-interface Car {
-    public function setModel($name);
-    public function getModel();
+interface Shape {
+    public function calcArea();
 }
 
-interface Vehicle {
-    public function setHasWheels($bool);
-    public function getHasWheels();
-}
+class Circle implements Shape {
+    private $radius;
 
-class miniCar implements Car, Vehicle {
-    private $model;
-    private $hasWheels;
-
-    public function setModel($name)
+    public function __construct($radius)
     {
-        $this -> model = $name;
+        $this -> radius = $radius;
     }
 
-    public function getModel()
+    // calcArea calculates the area of circles
+    public function calcArea()
     {
-        return $this -> model;
-    }
-
-    public function setHasWheels($bool)
-    {
-        $this -> hasWheels = $bool;
-    }
-
-    public function getHasWheels()
-    {
-        return ($this -> hasWheels)? "has wheels" : "no wheels";
+        return $this -> radius * $this -> radius * pi();
     }
 }
 
-$honda = new miniCar();
-$honda->getHasWheels(1);
+class Rectangle implements Shape {
+    private $width;
+    private $height;
 
-echo $this -> hasWheels;
+    public function __construct($width, $height)
+    {
+        $this -> width = $width;
+        $this -> height = $height;
+    }
+
+    // calcArea calculates the area of rectangles
+    public function calcArea()
+    {
+        return $this -> width * $this -> height;
+    }
+}
+
+$circ = new Circle(3);
+$rect = new Rectangle(3,4);
+
+echo $circ -> calcArea(). "<br>";
+echo $rect -> calcArea();
+
+
+
+
