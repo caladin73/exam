@@ -109,12 +109,12 @@ class Yadda {
         $this->imagetype = $imagetype;
     }
 
-    public function create() {            
-                
+    public function create() {
+
         $sql = "INSERT INTO Yadda (Text, Username) values (:text, :username)";
         $dbh = Model::connect();
         $lastID;
-        
+
         try {
             $q = $dbh->prepare($sql);
             $q->bindValue(':text', $this->getText());
@@ -178,9 +178,8 @@ class Yadda {
 
         $yaddas = array();
         $dbh = Model::connect();
-
         /**
-         * SQL query
+         * sql statement, selects from an view, the parent yadda, no replies!
          */
         $sql = "SELECT * FROM view_yaddas_no_replies";
 
@@ -189,16 +188,33 @@ class Yadda {
          * That way, we can rollback the transaction if a query fails and a PDO exception occurs.
          */
         try {
+            /**
+             * Prepare the sql statement
+             */
             $q = $dbh->prepare($sql);
+            /**
+             * Execute the sql statement if no error happens
+             */
             $q->execute();
+            /**
+             *while loop, that fetches parent yadda's
+             *new object to store the fetched rows in an array
+             *runs the loop though and insert the last fetched row in the array with "array_push"
+             */
             while ($row = $q->fetch()) {
                 $yadda = new Yadda($row["YaddaID"], $row["Text"], $row["Username"], $row["DateAndTime"], $row["lft"], $row["rght"]);
                 $yadda->setNumOfReplies($row["replies"]);
                 array_push($yaddas, $yadda);
-            }   
+            }
+            /**
+             * Sets an attribute on the database handle, if error happens and prints message
+             */
         } catch (PDOException $e) {
             printf("<P>No Yaddas could be displayed: <br/>%s</p>\n",
                     $e->getMessage());
+            /**
+             * end and return array in $yaddas
+             */
         } finally {
             return $yaddas;            
         }
@@ -339,51 +355,38 @@ class Yadda {
         }
     }
     
-    /* Er ikke særlig effektivt ved store trees */
     public function rebuild_tree($parent, $left) {   //TODO
         $dbh = Model::connect();
     
         $sql = 'SELECT y.YaddaID 
-                FROM Yadda y 
+                FROM Yadda y
                 WHERE y.YaddaID in (select r.YaddaIDReply 
                 from Reply r
                 where r.YaddaID = '.$parent.')';
                 
-        // the right value of this node is the left value + 1   
-        $right = $left+1;   
+        /** the right value of this node is the left value + 1*/
+        $right = $left+1;
 
         $q = $dbh->prepare($sql);
         $q->execute();
         
-        // get all children of this node   
-        //$result = $this->link->query($sql);   
-
-        /*if (!$this->link->error) { //TODO -> try-catch
-            $error = $this->link->error;
-        }*/
-
-        //while ($row = mysqli_fetch_array($result)) {   
+        /** get all children of this node*/
         while ($row = $q->fetch()) {
-            // recursive execution of this function for each   
-            // child of this node   
-            // $right is the current right value, which is   
-            // incremented by the rebuild_tree function   
+            /** recursive execution of this function for each
+            * child of this node
+            * $right is the current right value, which is
+            * incremented by the rebuild_tree function*/
             $right = $this->rebuild_tree($row['YaddaID'], $right);   
         }   
 
         $sql = 'UPDATE Yadda SET lft='.$left.', rght='.   
                                         $right.' WHERE YaddaID="'.$parent.'";';
         
-        // we've got the left value, and now that we've processed   
-        // the children of this node we also know the right value   
-        //$result = $this->link->query();   
+        /** we've got the left value, and now that we've processed
+         the children of this node we also know the right value*/
         $q = $dbh->prepare($sql);
         $q->execute();
         
-        /*if (!$result) {
-            $error = $this->link->error; //TODO -> try-catch
-        }*/
-        // return the right value of this node + 1   
-        return $right+1;   
+        return $right+1;
     } 
 }
