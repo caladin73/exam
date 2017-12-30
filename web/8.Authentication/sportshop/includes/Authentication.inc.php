@@ -1,17 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Peter
- * Date: 30-12-2017
- * Time: 10:13
- */
+   require_once './includes/AuthA.inc.php'; // include the login parent
 
-require_once 'AuthA.includes.php'; // include the login parent
 
 /**
  * Description of Authentication
  * Authentication is a Singleton, hence the private constructor.
  * It is instantiated by Authentication::authenticate()
+ * @author nml
  */
 class Authentication extends AuthA {
     const DISPVAR = 'waldo42';
@@ -19,13 +14,13 @@ class Authentication extends AuthA {
 
     private function __construct($user, $pwd) {
         try {
-            self::dbLookUp($user, $pwd);         /** invoke auth*/
-            $_SESSION[self::SESSVAR] = $this->getUserId(); /** if succesfull*/
-            $_SESSION[self::DISPVAR] = $this->getName();   /** if succesfull*/
+            self::dbLookUp($user, $pwd);         // invoke auth
+            $_SESSION[self::SESSVAR] = $this->getUserId(); // if succesfull
+            $_SESSION[self::DISPVAR] = $this->getName();   // if succesfull
         }
         catch (Exception $e) {
             self::$logInstance = NULL;
-        }
+        }    
     }
 
     public static function authenticate($user, $pwd) {
@@ -34,9 +29,9 @@ class Authentication extends AuthA {
         }
         return self::$logInstance;
     }
-
+    
     protected function dbLookUp($user, $pwdtry) {
-        /** Using prepared statements to prevent SQL injection*/
+      // Using prepared statements to prevent SQL injection
         $db = DbH::getDbH();
         $sql = "select firstname, uid, password, activated 
                 from user
@@ -48,7 +43,7 @@ class Authentication extends AuthA {
             $q->execute();
             $row = $q->fetch();
             if ($row['uid'] === $user
-                && password_verify($pwdtry, $row['password'])) {
+                    && password_verify($pwdtry, $row['password'])) { 
                 $this->name = $row['firstname'];
                 $this->userId = $user;
             } else {
@@ -58,11 +53,11 @@ class Authentication extends AuthA {
             die($e->getMessage());
         }
     }
-
+    
     private function getName() {
         return $this->name;
     }
-
+    
     public static function getDispvar() {
         return $_SESSION[self::DISPVAR];
     }
