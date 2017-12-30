@@ -25,7 +25,8 @@
 $cookie_name = "user";
 $cookie_value = "John Doe";
 
-/** the cookie is set to expire after 5 seconds */
+/** the cookie is set to expire after 5 seconds
+ * The "/" means that the cookie is available in entire website*/
 setcookie($cookie_name, $cookie_value, time() + (5), "/");
 
 /** if statement that checks if there is a cookie on the users computer

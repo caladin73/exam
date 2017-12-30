@@ -1,15 +1,15 @@
 <?php
 /* 
- * model/Yadda.inc.php
+ * model/Yadda.includes.php
  * @Project: YaddaYaddaYadda
  * @Author: Daniel, Jesper, Marianne & Peter
  */
 
 error_reporting(E_ALL);
 
-require_once 'Authentication.inc.php';
-require_once 'Tag.inc.php';
-require_once 'Reply.inc.php';
+require_once 'Authentication.includes.php';
+require_once 'Tag.includes.php';
+require_once 'Reply.includes.php';
 
 class Yadda {
     private $yaddaID;

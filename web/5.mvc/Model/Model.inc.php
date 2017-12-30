@@ -1,9 +1,9 @@
 <?php
 
-require_once 'DbH.inc.php';
+require_once 'DbH.includes.php';
 require_once 'ModelIf.inc.php';
 require_once 'Model.inc.php';
-require_once 'Authentication.inc.php';
+require_once 'Authentication.includes.php';
 
 
 /**

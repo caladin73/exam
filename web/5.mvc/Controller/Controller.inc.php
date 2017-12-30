@@ -1,17 +1,17 @@
 <?php
 /**
- * controller/Controller.inc.php
+ * controller/Controller.includes.php
  * @author 
  * @copyright (c) 2017, 
  * @license http://www.fsf.org/licensing/ GPLv3
  */
-require_once './model/Model.inc.php';
-require_once './model/Users.inc.php';
-require_once './model/Yadda.inc.php';
-require_once './view/LoginView.inc.php';
-require_once './view/UserView.inc.php';
-require_once './view/YaddaView.inc.php';
-require_once './model/AuthA.inc.php';
+require_once './model/Model.includes.php';
+require_once './model/Users.includes.php';
+require_once './model/Yadda.includes.php';
+require_once './view/LoginView.includes.php';
+require_once './view/UserView.includes.php';
+require_once './view/YaddaView.includes.php';
+require_once './model/AuthA.includes.php';
 
 /**
  * Class Controller
