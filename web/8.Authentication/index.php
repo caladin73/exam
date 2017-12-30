@@ -15,8 +15,6 @@ include './includes/menu.includes.php';
 ?>
 <main>
 </main>
-<?php
-include './includes/footer.includes.php';
-?>
+
 </body>
 </html>

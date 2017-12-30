@@ -1,6 +1,6 @@
 <?php
-require_once './includes/DbP.inc.php';
-require_once './includes/DbH.inc.php';
+require_once './includes/DbP.includes.php';
+require_once './includes/DbH.includes.php';
 $dbh = DbH::getDbH();
 
 foreach($_POST as $key => $value) {

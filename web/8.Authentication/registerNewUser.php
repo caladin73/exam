@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once './includes/DbP.inc.php';
-require_once './includes/DbH.inc.php';
-require_once './includes/Authentication.inc.php';
+require_once './includes/DbP.includes.php';
+require_once './includes/DbH.includes.php';
+require_once './includes/Authentication.includes.php';
 $dbh = DbH::getDbH();
 ?>
 <!doctype html>
@@ -30,7 +30,7 @@ $dbh = DbH::getDbH();
 </head>
 <body>
 <?php
-include './includes/menu.inc.php';
+include './includes/menu.includes.php';
 ?>
 <main id="mydiv">
     <form id='formalia' action="registerNewUserDb.php" method="post">
@@ -69,8 +69,5 @@ include './includes/menu.inc.php';
         </table>
     </form>
 </main>
-<?php
-include './includes/footer.inc.php';
-?>
 </body>
 </html>
