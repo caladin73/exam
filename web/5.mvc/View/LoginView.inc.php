@@ -1,12 +1,12 @@
 <?php
 
 /* 
- * view/LoginView.inc.php
+ * view/LoginView.includes.php
  * @Project: YaddaYaddaYadda
  * @Author: Daniel, Jesper, Marianne & Peter
  */
 
-require_once 'view/View.inc.php';
+require_once 'view/View.includes.php';
 
 class LoginView extends View {
     

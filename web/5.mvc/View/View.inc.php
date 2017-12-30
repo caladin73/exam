@@ -1,13 +1,13 @@
 <?php
 
 /* 
- * view/View.inc.php
+ * view/View.includes.php
  * @Project: YaddaYaddaYadda
  * @Author: Daniel, Jesper, Marianne & Peter
  */
 
-require_once './model/Users.inc.php';
-require_once './model/Yadda.inc.php';
+require_once './model/Users.includes.php';
+require_once './model/Yadda.includes.php';
 
 abstract class View {
     
