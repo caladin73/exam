@@ -6,7 +6,7 @@
  * Time: 10:13
  */
 
-require_once './includes/AuthA.includes.php'; // include the login parent
+require_once 'AuthA.includes.php'; // include the login parent
 
 /**
  * Description of Authentication

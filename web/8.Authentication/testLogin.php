@@ -24,7 +24,7 @@ if (!Authentication::isAuthenticated()
 }
 
 if (Authentication::isAuthenticated()) {  // am I logged on?
-    header("Location: ./index.php");
+    header("Location: index.php");
 }
 ?>
 <!doctype html>
