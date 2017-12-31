@@ -5,20 +5,23 @@ abstract class AuthA {
   protected $userId;
   protected static $logInstance = NULL;
 
-
+  /** here we get the user information from login in an array, and return true or false */
   public static function isAuthenticated() {
     return isset($_SESSION[self::SESSVAR]) ? true : false;
   }
 
+  /** set cookies */
   private static function setTestCookie() {
     setcookie('foo', 'bar', time() + 3600);
   }
 
+  /** checks if cookies is enable */
   public static function areCookiesEnabled() {
     self::setTestCookie();
     return (isset($_COOKIE['foo']) && $_COOKIE['foo'] == 'bar') ? true : false;
   }
-    
+
+  /** logout function, that close session and cookies */
   public static function logout() {
     session_start();
     session_unset();
