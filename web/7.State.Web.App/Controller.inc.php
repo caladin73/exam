@@ -45,8 +45,7 @@ class Controller {
                 }
                 $view1->display();
                 break;
-            /** checks if user is logged, before he can access and see profile page */
-            case 'profile':
+            case 'profile':   //user edit 
                 if(!Authentication::isAuthenticated()) {
                     header('Location: ./index.php');
                 }
