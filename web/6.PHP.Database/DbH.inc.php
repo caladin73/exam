@@ -19,9 +19,3 @@ class DbH extends DbP {
         return self::$dbh;
     }
 }
-
-http://www.pets.com/show_a_product.php?product_id=7
-
-http://www.pets.com/products/7/
-
-http://www.pets.com/show_a_product.php?product_id={a number}
