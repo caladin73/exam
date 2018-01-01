@@ -6,8 +6,7 @@
  * Time: 13:05
  */
 
-// The parent class has hello method that returns "beep".
-
+/** The parent class has hello method that returns "beep". */
 class Car {
     public function hello()
     {
@@ -15,7 +14,7 @@ class Car {
     }
 }
 
-//The child class has hello method that tries to override the hello method in the parent
+/** The child class has hello method that tries to override the hello method in the parent */
 class SportsCar extends Car {
     public function hello()
     {
@@ -24,12 +23,12 @@ class SportsCar extends Car {
 }
 
 
-//Create a new object
+/** Create a new object */
 $sportsCar1 = new SportsCar();
 
-//Get the result of the hello method
+/** Get the result of the hello method */
 echo $sportsCar1 -> hello();
 
-// we can advoid this by using Final in parent class!
+/** we can avoid this by using Final in parent class! */
 
 ?>
