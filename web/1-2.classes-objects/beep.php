@@ -6,20 +6,20 @@
  * Time: 08:18
  */
 
-// Declare the class
+/** Declare the class */
 class Car {
 
-    // properties
+    /** properties */
     public $company;
     public $color = 'beige';
     public $hasSunRoof = true;
 }
 
-// Create instances (object)
+/** Create instances (object) */
 $bmw = new Car ();
 $mercedes = new Car ();
 
-// Set the values
+/** Set the values */
 $mercedes -> color = "Green";
 $mercedes -> company = "Mercedes Benz";
 
@@ -27,7 +27,7 @@ $bmw -> company = "BMW";
 $bmw -> color = 'Blue';
 $bmw -> hasSunRoof = false; //change the default value of sunroof from true to false
 
-//get the values
+/**  get the values */
 echo $mercedes -> company. "<br>"; // BMW
 echo $mercedes -> color ."<br>"; // Green
 echo 'Has sunroof: '.(boolval($mercedes -> hasSunRoof) ? 'yes' : 'no'). "<br><br>"; //checks if sunroof is set to true or false
@@ -35,4 +35,3 @@ echo 'Has sunroof: '.(boolval($mercedes -> hasSunRoof) ? 'yes' : 'no'). "<br><br
 echo $bmw -> company. "<br>"; // BMW
 echo $bmw -> color ."<br>"; // Blue
 echo 'Has sunroof: '.(boolval($bmw -> hasSunRoof) ? 'yes' : 'no'). "<br><br>"; //checks if sunroof is set to true or false
-?>
