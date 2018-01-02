@@ -6,25 +6,19 @@
  * Time: 19:40
  */
 
-/**
- * General singleton class.
- */
+
+/** General singleton class. */
 class Singleton {
-    /**
-     * Hold the class instance.
-     */
-    private static $instance = null;
-    /**
-    The constructor is private to prevent initiation with outer code.
-    */
+     /** Hold the class instance. */
+     private static $instance = null;
+
+    /** The constructor is private to prevent initiation with outer code. */
     private function __construct()
     {
-        // The expensive process (e.g.,db connection) goes here.
+        /** The expensive process (e.g.,db connection) goes here. */
     }
 
-    /**
-     * The object is created from within the class itself only if the class has no instance.
-    */
+    /** The object is created from within the class itself only if the class has no instance. */
     public static function getInstance()
     {
         if (self::$instance == null)

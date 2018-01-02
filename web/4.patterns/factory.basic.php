@@ -10,9 +10,9 @@ class CarOrder {
     protected $carOrders = array();
     protected $car;
 
-    // Order & make the car in the same method???!
+    /** Order & make the car in the same method???! */
     public function order($model=null)
-    {
+    {   /** strtolower Returns string with all alphabetic characters converted to lowercase.  */
         if(strtolower($model) == 'r')
             $this->car = new CarModelR();
         else

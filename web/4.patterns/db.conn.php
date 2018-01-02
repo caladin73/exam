@@ -6,9 +6,9 @@
  * Time: 19:47
  */
 
-// Singleton to connect db.
+/** Singleton to connect db. */
 class ConnectDb {
-    // Hold the class instance.
+    /** Hold the class instance. */
     private static $instance = null;
     private $conn;
 
@@ -17,7 +17,7 @@ class ConnectDb {
     private $pass = '';
     private $name = 'conn';
 
-    // The db connection is established in the private constructor.
+    /** The db connection is established in the private constructor. */
     private function __construct()
     {
         $this->conn = new PDO("mysql:host={$this->host};
@@ -41,12 +41,10 @@ class ConnectDb {
     }
 }
 
-/**
- * Since I use a class that checks if a connection already exists before it establishes a new one,
- * it really doesn't matter how many times I've create a new object out of the class, I still get the same connection.
- * To prove the point, I 've created three instances out of the class and var dump them.
-*/
 
+ /** Since I use a class that checks if a connection already exists before it establishes a new one,
+ * it really doesn't matter how many times I've create a new object out of the class, I still get the same connection.
+ * To prove the point, I 've created three instances out of the class and var dump them. */
 $instance = ConnectDb::getInstance();
 $conn = $instance->getConnection();
 var_dump($conn);
