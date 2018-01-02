@@ -22,7 +22,7 @@ class exampleClass
     }
 }
 
-/** static method ::self */
+/** static method self:: */
 exampleClass::$foo = "Hello";
 exampleClass::staticFunction(); /** prints Hello */
 
