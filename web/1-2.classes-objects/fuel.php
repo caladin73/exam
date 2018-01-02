@@ -37,4 +37,4 @@ get the number of liter in the tank. */
 $tank = $bmw -> fill(50) -> ride(140) -> tank;
 
 /** Print the results to the screen. */
-echo "The number of liters left in the tank: " . $tank . " liter.";
+echo "liters left in the tank: " . $tank . " liter.";
