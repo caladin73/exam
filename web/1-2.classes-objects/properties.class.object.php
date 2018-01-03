@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Peter
- * Date: 21-12-2017
- * Time: 06:04
- */
-
 class exampleClass
 {
     public static $foo;

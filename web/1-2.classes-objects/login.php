@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Peter_Laptop
- * Date: 19-12-2017
- * Time: 06:51
- */
-
 /** Declare the class */
 class Member
 {

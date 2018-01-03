@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Peter
- * Date: 20-12-2017
- * Time: 08:37
- */
-
 class Car {
 
     // The properties

@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Peter_Laptop
- * Date: 18-12-2017
- * Time: 13:34
- */
-
 class Car {
 
     private $model;
