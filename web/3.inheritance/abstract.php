@@ -36,12 +36,12 @@ class Toyota extends Car {
 $honda = new Honda();
 $honda -> setTankVolume(50);
 echo get_class($honda). ": ";
-echo $honda->calcNumKmOnFullTank();
+echo $honda->calcNumKmOnFullTank(); //50*18 = 900 km
 echo " Km in tank" ."<br>";
 
 /** create a new car object with a tank volume of 60 liter and return the km it can run of the volume */
 $toyota1 = new Toyota();
 $toyota1 -> setTankVolume(60);
 echo get_class($toyota1). ": ";
-echo $toyota1 -> calcNumKmOnFullTank();
+echo $toyota1 -> calcNumKmOnFullTank(); // 12*60 = 720 km
 echo " Km in tank, color: ". $toyota1->getColor(); /** get color as set in child class */
