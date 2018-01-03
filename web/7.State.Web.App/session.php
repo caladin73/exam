@@ -1,11 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Peter
- * Date: 30-12-2017
- * Time: 18:35
- */
-
 /** Start the session*/
 session_start();
 
