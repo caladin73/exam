@@ -1,38 +1,100 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Peter
- * Date: 22-12-2017
- * Time: 16:51
- */
+class CarFactory {
 
-class Automobile
-{
-    private $vehicle_make;
-    private $vehicle_model;
+    protected $car;
 
-    public function __construct($make, $model)
+    // Determine which model to manufacture, and instantiate
+    //  the concrete classes that make each model.
+    public function make($model=null)
     {
-        $this->vehicle_make = $make;
-        $this->vehicle_model = $model;
-    }
+        if(strtolower($model) == 'r')
+            return $this->car = new CarModelR();
 
-    public function get_make_and_model()
-    {
-        return $this->vehicle_make . ' ' . $this->vehicle_model;
+        return $this->car = new CarModelS();
     }
 }
 
-class AutomobileFactory
-{
-    public static function create($make, $model)
+class CarOrder {
+    protected $carOrders = array();
+    protected $car;
+
+    // First, create the carFactory object in the constructor.
+    public function __construct()
     {
-        return new Automobile($make, $model);
+        $this->car = new CarFactory();
+    }
+
+    public function order($model=null)
+    {
+        // Use the make() method from the carFactory.
+        $car = $this->car->make($model);
+        $this->carOrders[]=$car->getModel();
+    }
+
+    public function getCarOrders()
+    {
+        return $this->carOrders;
     }
 }
 
-// have the factory create the Automobile object
-$veyron = AutomobileFactory::create('Bugatti', 'Veyron');
+interface Car {
+    function getModel();
 
-// outputs "Bugatti Veyron"
-print_r($veyron->get_make_and_model());
+    function getWheel();
+
+    function hasSunRoof();
+}
+
+class CarModelS implements Car {
+    protected $model = 's';
+    protected $wheel = 'sports';
+    protected $sunRoof = true;
+
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    public function getWheel()
+    {
+        return $this->wheel;
+    }
+
+    public function hasSunRoof()
+    {
+        return $this->sunRoof;
+    }
+}
+
+class CarModelR implements Car {
+    protected $model = 'r';
+    protected $wheel = 'regular';
+    protected $sunRoof = false;
+
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    public function getWheel()
+    {
+        return $this->wheel;
+    }
+
+    public function hasSunRoof()
+    {
+        return $this->sunRoof;
+    }
+}
+
+$carOrder = new CarOrder;
+
+var_dump($carOrder->getCarOrders());
+echo "<br>";
+
+$carOrder->order('r');
+var_dump($carOrder->getCarOrders());
+
+echo "<br>";
+$carOrder->order('s');
+var_dump($carOrder->getCarOrders());

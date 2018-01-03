@@ -1,15 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Peter
- * Date: 20-12-2017
- * Time: 15:44
- */
-
 interface Shape {
     public function calcArea();
 }
-
 class Circle implements Shape {
     private $radius;
 
@@ -47,7 +39,3 @@ $rect = new Rectangle(3,4);
 
 echo $circ -> calcArea(). "<br>";
 echo $rect -> calcArea();
-
-
-
-
