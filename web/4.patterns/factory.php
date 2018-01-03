@@ -7,7 +7,7 @@ class CarFactory {
     //  the concrete classes that make each model.
     public function make($model=null)
     {
-        if(strtolower($model) == 'r')
+        if(strtolower($model) == 'r') //Convert all characters to lowercase: 
             return $this->car = new CarModelR();
 
         return $this->car = new CarModelS();
