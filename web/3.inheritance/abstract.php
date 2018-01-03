@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Peter
- * Date: 20-12-2017
- * Time: 14:22
- */
-
 abstract class Car {
     /** Abstract classes can have properties */
     protected $tankVolume;
@@ -19,9 +12,7 @@ abstract class Car {
 }
 
 class Honda extends Car {
-
-    /** Since we inherited abstract method, we need to define it in the child class,
-    by adding code to the method's body. */
+    /** Since we inherited abstract method, we need to define it in the child class, by adding code to the method's body. */
     public function calcNumKmOnFullTank()
     {
         $km = $this->tankVolume*18;
@@ -30,8 +21,7 @@ class Honda extends Car {
 }
 
 class Toyota extends Car {
-    /** Since we inherited abstract method, we need to define it in the child class,
-    by adding code to the method's body. */
+    /** Since we inherited abstract method, we need to define it in the child class, by adding code to the method's body. */
     public function calcNumKmOnFullTank()
     {
         return $km = $this->tankVolume*12;
