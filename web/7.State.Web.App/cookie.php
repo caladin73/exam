@@ -1,12 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Peter
- * Date: 29-12-2017
- * Time: 11:24
- */
-?>
-
 <!--countdown script in JavaScript-->
 <p> Countdown <span id="countdowntimer">5 </span> Seconds</p>
 <script type="text/javascript">
