@@ -1,6 +1,5 @@
 <?php
 class Car {
-
     public $tank;
 
     /** Add fuel to the tank function */
@@ -10,14 +9,12 @@ class Car {
 
         return $this;
     }
-
     /** consumption function subtract fuel from the tank as we ride the car. */
     public function ride($float)
     {
         $km = $float;
         $liter = $km/14; /** 14 km/l */
         $this-> tank -= ($liter);
-
         return $this;
     }
 }
