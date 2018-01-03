@@ -1,18 +1,13 @@
 <?php
-class exampleClass
-{
+class exampleClass {
     public static $foo;
     public $bar;
+    
+    public static function staticFunction() {
+        echo self::$foo;}
 
-    public static function staticFunction()
-    {
-        echo self::$foo;
-    }
-
-    public function regularFunction()
-    {
-        echo $this->bar;
-    }
+    public function regularFunction(){
+        echo $this->bar;}
 }
 
 /** static method self:: */
