@@ -1,0 +1,54 @@
+drop database if exists c1db2;
+create database c1db2;
+use c1db2;
+
+--1:N one to many, parital and total participation
+create table Users(
+    Username varchar(16) not null,
+    Password blob not null,
+    Email varchar(32) not null,
+    ProfilImage blob not null,
+    Admin tinyint(1) not null,
+    Activated tinyint(1) not null,
+    primary key(Username),
+    unique(Username)
+);
+
+--step 4a 1:N, Foreign key attribute on n-side
+create table Listener(
+    UsernameListener varchar(16) not null,
+    UsernameListensTo varchar(16) not null,
+    primary key(UsernameListener),
+    foreign key(UsernameListener) references Users(Username) on delete cascade,
+    foreign key(UsernameListensTo) references Users(Username) on delete cascade
+);
+
+create table Yadda(
+    YaddaID int(16) auto_increment,
+    Text varchar(160) not null,
+    Username varchar(16) not null,
+    DateAndTime datetime not null,
+    primary key(YaddaID),
+    foreign key(Username) references Users(Username)
+);
+
+create table Tag(
+    YaddaID int(16) not null,
+    Tagname varchar(16) not null,
+    primary key(YaddaID),
+    foreign key(YaddaID) references Yadda(YaddaID)
+);
+
+create table Image(
+    YaddaID int(16) not null,
+    Imagedata blob not null,
+    primary key(YaddaID),
+    foreign key(YaddaID) references Yadda(YaddaID)
+);
+
+create table Reply(
+    YaddaID int(16) not null,
+    YaddaIDReply int(16) not null,
+    primary key(YaddaID),
+    foreign key(YaddaID) references Yadda(YaddaID)
+);
