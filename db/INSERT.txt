@@ -1,0 +1,16 @@
+INSERT INTO Users (Username, Password, ProfilImage, Admin, Activated) VALUES ('Peter2', 'hashed', 'img_data', 1, 1);
+
+
+
+Username varchar(16) not null,
+Password blob not null,
+Email varchar(32) not null,
+ProfilImage blob not null,
+Admin tinyint(1) not null,
+Activated tinyint(1) not null,
+primary key(Username),
+unique(Username)
+
+, Password, Email, ProfilImage, Admin, Activated
+
+, 'hashed', 'peter@gmail.com', 'img_data', 1, 1,
