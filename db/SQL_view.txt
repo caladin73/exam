@@ -56,3 +56,6 @@ WHERE y.YaddaID IN (
     FROM Reply AS r
     WHERE r.YaddaID = 155
 );//
+
+--to see if an view is_updatable
+select table_name, is_updatable from information_schema.views where table_schema = 'c1db2';//
