@@ -11,7 +11,6 @@ class ConnectDb {
     /** Hold the class instance. */
     private static $instance = null;
     private $conn;
-
     private $host = 'localhost';
     private $user = 'root';
     private $pass = '';

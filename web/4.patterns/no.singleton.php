@@ -9,7 +9,6 @@
  */
 class ConnectDbWOSingleton {
     private $conn;
-
     private $host = 'localhost';
     private $user = 'root';
     private $pass = '';

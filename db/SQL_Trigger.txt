@@ -1,0 +1,44 @@
+mysql -u c1dbu1 -pRs0Kv0Imn5 -h 84.19.166.106 c1db5
+
+
+SHOW trigger, event TRIGGERS;
+
+
+
+
+
+
+SHOW TRIGGERS \G
+
+The \G modifier in the MySQL command line client
+
+A little publicized, but exceedingly useful feature
+ of the MySQL command line client is the \G modifier.
+ It formats the query output nicely, so you can read
+ through it easier. To use it, you just replace the
+ semi-colon at the end of the query with ‘\G’.
+
+
+Triggers Order
+
+ SELECT
+     trigger_name, action_order
+ FROM
+     information_schema.triggers
+ WHERE
+     trigger_schema = 'classicmodels'
+ ORDER BY event_object_table ,
+          action_timing ,
+          event_manipulation
+
+
+/*The statement allows you to view both content of the trigger
+and its metadata such as associated table name  and definer,
+which is the name of MySQL user who created the trigger.*/
+SELECT
+  *
+FROM
+  information_schema.triggers
+WHERE
+  trigger_schema = 'c1db5'
+    AND trigger_name = 'company_BEFORE_INSERT' \G
