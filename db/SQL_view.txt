@@ -1,13 +1,20 @@
---server login information commandline
+--server login information command line
 mysql -u c1dbu1 -pRs0Kv0Imn5 -h 84.19.166.106 c1db2
+
+
+show tables;
+describe view_yaddas_no_replies;
+describe view_allUsers;
+select * from view_yaddas_no_replies;
+select Username, lft, rght, replies from view_yaddas_no_replies;
+
+delimiter //
 
 --create view as
 CREATE VIEW view_name AS
 SELECT column1, column2.....
 FROM table_name
 WHERE [condition];
-
-DELIMITER //
 
 -- create view, to show parent yadda only, and count number of replies
 DROP VIEW  IF EXISTS view_yaddas_no_replies;
