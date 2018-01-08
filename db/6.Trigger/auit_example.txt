@@ -34,7 +34,6 @@ CREATE
 		ELSE
 			SET @changetype = 'NEW';
 		END IF;
-
 		INSERT INTO audit (blog_id, changetype) VALUES (NEW.id, @changetype);
 		END//
 
@@ -43,7 +42,6 @@ CREATE
     	TRIGGER `blog_after_update` AFTER UPDATE
     	ON `blog`
     	FOR EACH ROW BEGIN
-
     		IF NEW.deleted THEN
     			SET @changetype = 'DELETE';
     		ELSE
@@ -52,9 +50,13 @@ CREATE
     		INSERT INTO audit (blog_id, changetype) VALUES (NEW.id, @changetype);
         END$$
 
-    DELIMITER ;
+DELIMITER ;
 
 --insert and update values
 INSERT INTO blog (title, content) VALUES ('Article One', 'Initial text.');
 UPDATE blog SET content = 'Edited text' WHERE id = 1;
 UPDATE blog SET deleted = 1 WHERE id = 1;
+
+--show trigger_schema
+SELECT * FROM information_schema.triggers WHERE trigger_schema = 'examm' AND trigger_name = 'blog_after_insert' \G
+SELECT * FROM information_schema.triggers WHERE trigger_schema = 'examm' AND trigger_name = 'blog_after_update' \G
