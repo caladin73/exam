@@ -1,7 +1,6 @@
 --server login information command line
 mysql -u c1dbu1 -pRs0Kv0Imn5 -h 84.19.166.106 c1db2
 
-
 show tables;
 describe view_yaddas_no_replies;
 describe view_allUsers;
