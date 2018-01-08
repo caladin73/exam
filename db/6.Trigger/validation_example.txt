@@ -1,0 +1,37 @@
+--validation trigger check, if url has the right syntax
+CREATE TRIGGER `validate_work_url` BEFORE INSERT ON `table_name`
+  FOR EACH ROW BEGIN
+    IF new.url REGEXP "^(https?://|www.)[.A-Za-z0-9-]+.[a-zA-Z]{2,4}" THEN
+      SET new.url = new.url;
+    ELSE
+      SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT =  "INCORRECT URL" ;
+    END IF;
+  END
+
+DELIMITER //
+CREATE TRIGGER example_before_insert_allow_only_one_active
+/*before insert validation trigger, checks if there is an active bolean */
+     BEFORE INSERT ON example_tbl FOR EACH ROW
+     BEGIN
+          IF NEW.active = 1 AND (SELECT COUNT(id) FROM example_tbl
+               WHERE active=1 AND foreign_key_id=NEW.foreign_key_id) > 0
+          THEN
+               SIGNAL SQLSTATE '45000'
+                    SET MESSAGE_TEXT = 'Cannot add or update row: only one active row allowed per type';
+          END IF;
+     END;
+//
+
+/*before update validation trigger, checks if there is an active bolean */
+CREATE TRIGGER example_before_update_allow_only_one_active
+     BEFORE UPDATE ON example_tbl  FOR EACH ROW
+     BEGIN
+          IF NEW.active = 1 AND (SELECT COUNT(id) FROM example_tbl
+               WHERE id<>NEW.id AND active=1 AND foreign_key_id=NEW.foreign_key_id) > 0
+          THEN
+               SIGNAL SQLSTATE '45000'
+                    SET MESSAGE_TEXT = 'Cannot add or update row: only one active row allowed per type';
+          END IF;
+     END;
+//
