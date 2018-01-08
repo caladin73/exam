@@ -17,3 +17,6 @@ A little publicized, but exceedingly useful feature
  It formats the query output nicely, so you can read
  through it easier. To use it, you just replace the
  semi-colon at the end of the query with ‘\G’.
+
+
+ny
