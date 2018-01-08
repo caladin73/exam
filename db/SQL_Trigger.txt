@@ -1,0 +1,19 @@
+mysql -u c1dbu1 -pRs0Kv0Imn5 -h 84.19.166.106 c1db5
+
+
+SHOW trigger, event TRIGGERS;
+
+
+
+
+
+
+SHOW TRIGGERS \G
+
+The \G modifier in the MySQL command line client
+
+A little publicized, but exceedingly useful feature
+ of the MySQL command line client is the \G modifier.
+ It formats the query output nicely, so you can read
+ through it easier. To use it, you just replace the
+ semi-colon at the end of the query with ‘\G’.
