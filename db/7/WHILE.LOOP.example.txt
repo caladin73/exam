@@ -1,0 +1,25 @@
+DELIMITER $$
+DROP PROCEDURE IF EXISTS test_mysql_while_loop$$
+CREATE PROCEDURE test_mysql_while_loop()
+BEGIN
+DECLARE x  INT;
+DECLARE str  VARCHAR(255);
+SET x = 1;
+SET str =  '';
+WHILE x  <= 5 DO
+SET  str = CONCAT(str,x,',');
+SET  x = x + 1;
+END WHILE;
+SELECT str;
+END$$
+DELIMITER ;
+
+CALL test_mysql_while_loop();
+
+/*
+First, we build string repeatedly until the value of the x variable is greater than 5.
+Then, we display the final string using the SELECT statement.
+
+Notice that if we don’t initialize the x variable, its default value is NULL.
+Therefore, the condition in the WHILE loop statement is always TRUE and you will
+ have an indefinite loop, which is not expected.*/
