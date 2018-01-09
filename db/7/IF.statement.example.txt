@@ -1,5 +1,5 @@
 DELIMITER $$
-DREATE PROCEDURE GetCustomerLevel(
+CREATE PROCEDURE GetCustomerLevel(
     in  p_customerNumber int(11),
     out p_customerLevel  varchar(10))
 BEGIN
@@ -14,4 +14,19 @@ BEGIN
     ELSEIF creditlim < 10000 THEN
         SET p_customerLevel = 'SILVER';
     END IF;
-END$$
+END $$
+
+/*we call the procedure with IN and OUT
+we then select @level as Customer Level*/
+CALL GetCustomerLevel(141, @level);
+SELECT @level AS 'Customer Level';
+//
+
+select customerNumber, creditLimit from customers;
+
+/*
+examples of customerNumber creditlevels
+PLATINUM = 141
+GOLD = 103
+SILVER = 125
+*/
