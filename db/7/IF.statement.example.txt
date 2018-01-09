@@ -16,13 +16,16 @@ BEGIN
     END IF;
 END $$
 
-/*we call the procedure with IN and OUT
-we then select @level as Customer Level*/
+/*We can test our stored procedure
+by executing the following test script*/
 CALL GetCustomerLevel(141, @level);
 SELECT @level AS 'Customer Level';
-//
+$$
 
+
+mysql -u root -p -h localhost
 select customerNumber, creditLimit from customers;
+show create procedure GetCustomerLevel;
 
 /*
 examples of customerNumber creditlimit level
