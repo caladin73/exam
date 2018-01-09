@@ -16,8 +16,10 @@ DELIMITER ;
 
 CALL test_mysql_while_loop();
 
-/*
-First, we build string repeatedly until the value of the x variable is greater than 5.
+
+mysql -u root -p -h localhost
+
+/*First, we build string repeatedly until the value of the x variable is greater than 5.
 Then, we display the final string using the SELECT statement.
 
 Notice that if we don’t initialize the x variable, its default value is NULL.
