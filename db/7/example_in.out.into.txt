@@ -12,7 +12,7 @@ BEGIN
         FROM
             orders
         WHERE
-            customerNumber = cust_no
+            customerNumber = cust_no --141
                 AND status = 'Shipped';
  -- canceled
  SELECT
@@ -39,3 +39,9 @@ BEGIN
             customerNumber = cust_no
                 AND status = 'Disputed';
 END
+
+--set paramater, need to be done for each session, 141 is id on cust_no!
+CALL get_order_by_cust(141,@shipped,@canceled,@resolved,@disputed);
+
+--select after parameters er sat
+SELECT @shipped,@canceled,@resolved,@disputed;

@@ -22,9 +22,10 @@ CREATE TABLE `audit` (
 	CONSTRAINT `FK_audit_blog_id` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
---after insert trigger
+
 DELIMITER //
 
+--after insert trigger
 CREATE
 	TRIGGER `blog_after_insert` AFTER INSERT
 	ON `blog`
@@ -35,7 +36,9 @@ CREATE
 			SET @changetype = 'NEW';
 		END IF;
 		INSERT INTO audit (blog_id, changetype) VALUES (NEW.id, @changetype);
-		END//
+		END
+
+    //
 
 --after update trigger
     CREATE
@@ -48,7 +51,7 @@ CREATE
     			SET @changetype = 'EDIT';
     		END IF;
     		INSERT INTO audit (blog_id, changetype) VALUES (NEW.id, @changetype);
-        END$$
+        END
 
 DELIMITER ;
 
