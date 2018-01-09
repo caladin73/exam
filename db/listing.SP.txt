@@ -1,0 +1,22 @@
+Listing Stored Procedures in a MySQL Database
+
+
+--To display characteristics of a stored procedure, you use the  SHOW PROCEDURE STATUS statement as follows:
+SHOW PROCEDURE STATUS [LIKE 'pattern' | WHERE expr];
+
+--To list all stored procedures of the databases that you have the privilege to access
+SHOW PROCEDURE STATUS;
+
+--List a stored procedure in a particular database,
+SHOW PROCEDURE STATUS WHERE db = 'classicmodels';
+
+/*If you want to show stored procedures that have a particular pattern
+ e.g., its name contains product, you can use LIKE operator as the following command:	*/
+SHOW PROCEDURE STATUS WHERE name LIKE '%product%'
+
+--Displaying stored procedure’s source code
+
+--To display source code of a particular stored procedure, you use the  SHOW CREATE PROCEDURE statement as follows
+SHOW CREATE PROCEDURE stored_procedure_name;
+
+SHOW CREATE PROCEDURE GetAllProducts;
