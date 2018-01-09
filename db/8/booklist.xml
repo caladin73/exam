@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE booklist SYSTEM "booksXML1.dtd">
+<booklist>
+    <book type="analog">
+        <title>IT Kommunikation</title>
+        <author>Niels Müller Larsen</author>
+        <publisher>Dafolo</publisher>
+        <currency>DKR</currency>
+        <price>298</price>
+        <quantity>100</quantity>
+    </book>
+    <book type="ebook">
+        <title>In the Beginning Was the Command Line</title>
+        <author>Neal Stephenson</author>
+        <publisher>Perennial</publisher>
+        <currency>US$</currency>
+        <price>9.95</price>
+        <quantity>97</quantity>
+    </book>
+</booklist>
