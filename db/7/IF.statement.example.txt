@@ -16,8 +16,8 @@ BEGIN
     END IF;
 END $$
 
-/*We can test our stored procedure
-by executing the following test script*/
+/*We can test our stored procedure by caling it
+and give in and IN value and out variable*/
 CALL GetCustomerLevel(141, @level);
 SELECT @level AS 'Customer Level';
 $$
