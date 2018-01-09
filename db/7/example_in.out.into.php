@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Call stored procedure that return multiple values
- * @param $customerNumber
- */
 function call_sp($customerNumber)
 {
     try {
@@ -33,4 +29,3 @@ function call_sp($customerNumber)
 }
 
 call_sp(141);
-
