@@ -25,7 +25,7 @@ SELECT @level AS 'Customer Level';
 select customerNumber, creditLimit from customers;
 
 /*
-examples of customerNumber creditlevels
+examples of customerNumber creditlimit level
 PLATINUM = 141
 GOLD = 103
 SILVER = 125
