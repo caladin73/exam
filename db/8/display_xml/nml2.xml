@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?xml-stylesheet type="text/css" href="cardX1.css"?>
-
 <card>
-
 	<name>Niels Müller Larsen</name>
-
 	<title>Lecturer, MSc</title>
-
 	<email>nmla@iba.dk</email>
-
 	<uri>x15.dk, wetware.work</uri>
-
 	<phone>+45 9999 9999</phone>
-
 	<logo uri="x1.png"/>
-
 </card>
