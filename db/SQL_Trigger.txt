@@ -35,10 +35,75 @@ Triggers Order
 /*The statement allows you to view both content of the trigger
 and its metadata such as associated table name  and definer,
 which is the name of MySQL user who created the trigger.*/
+
 SELECT
   *
 FROM
   information_schema.triggers
 WHERE
   trigger_schema = 'c1db5'
-    AND trigger_name = 'company_BEFORE_INSERT' \G
+    AND trigger_name = 'user_profile_BEFORE_INSERT' \G
+
+
+
+
+/* Audit example code: */
+--create table blog
+CREATE TABLE `blog` (
+	`id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+	`title` text,
+	`content` text,
+	`deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	KEY `ix_deleted` (`deleted`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='Blog posts';
+
+-- create table audit
+CREATE TABLE `audit` (
+	`id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+	`blog_id` mediumint(8) unsigned NOT NULL,
+	`changetype` enum('NEW','EDIT','DELETE') NOT NULL,
+	`changetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`),
+	KEY `ix_blog_id` (`blog_id`),
+	KEY `ix_changetype` (`changetype`),
+	KEY `ix_changetime` (`changetime`),
+	CONSTRAINT `FK_audit_blog_id` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+--after insert trigger
+DELIMITER //
+
+CREATE
+	TRIGGER `blog_after_insert` AFTER INSERT
+	ON `blog`
+	FOR EACH ROW BEGIN
+		IF NEW.deleted THEN
+			SET @changetype = 'DELETE';
+		ELSE
+			SET @changetype = 'NEW';
+		END IF;
+
+		INSERT INTO audit (blog_id, changetype) VALUES (NEW.id, @changetype);
+		END//
+
+--after update trigger
+    CREATE
+    	TRIGGER `blog_after_update` AFTER UPDATE
+    	ON `blog`
+    	FOR EACH ROW BEGIN
+
+    		IF NEW.deleted THEN
+    			SET @changetype = 'DELETE';
+    		ELSE
+    			SET @changetype = 'EDIT';
+    		END IF;
+    		INSERT INTO audit (blog_id, changetype) VALUES (NEW.id, @changetype);
+        END$$
+
+    DELIMITER ;
+
+--insert and update values
+INSERT INTO blog (title, content) VALUES ('Article One', 'Initial text.');
+UPDATE blog SET content = 'Edited text' WHERE id = 1;
+UPDATE blog SET deleted = 1 WHERE id = 1;

@@ -17,8 +17,7 @@ WHERE y.YaddaID IN (
     SELECT r.YaddaIDReply
     FROM Reply AS r
     WHERE r.YaddaID = 155
-);
-//
+);//
 
 
 --SQL notes
