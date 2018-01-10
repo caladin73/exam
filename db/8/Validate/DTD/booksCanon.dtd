@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+        <!--
+            TODO define vocabulary identification
+            PUBLIC ID: -//vendor//vocabulary//EN
+            SYSTEM ID: http://server/path/booksCanon.dtd
+
+        -->
+
+        <!--
+            An example how to use this DTD from your XML document:
+
+            <?xml version="1.0"?>
+
+            <!DOCTYPE booksCanon SYSTEM "booksCanon.dtd">
+
+            <booksCanon>
+            ...
+            </booksCanon>
+        -->
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT booksCanon (book)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT book (comments|currency|price|isbn|pages|publisher|authors|edition|title)*>
+        <!ATTLIST book
+                mycanon CDATA #IMPLIED
+                ref CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT title (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT edition (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT authors (author)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT author (lastname|firstname)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT firstname (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT lastname (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT publisher (place|year|name)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT name (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT year (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT place (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT pages (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT isbn (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT price (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT currency (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT comments (comment)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT comment (#PCDATA)>
