@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE booksCanon SYSTEM "booksCanon.dtd">
+
 <booksCanon>
   <book ref="Llo08" mycanon="mdu,all">
     <title>Learn How to Build Web Sites the Right Way from Scratch</title>
