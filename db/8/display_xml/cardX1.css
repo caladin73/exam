@@ -1,0 +1,24 @@
+name, title, email, uri, phone {
+        display: block;
+}
+name {
+        font-size: 1.5em;
+        margin: 1.5cm 0 0 .75cm;
+}
+        title, email, phone, uri {
+        margin: 0 0 0 .75cm;
+}
+title {
+        font-style: oblique;
+}
+
+card {
+        background: transparent url(x1.png) no-repeat center right;
+        border: 1px solid black;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        height: 179px;
+        width: 444px;
+        margin: 0;
+        padding: 0;
+}
