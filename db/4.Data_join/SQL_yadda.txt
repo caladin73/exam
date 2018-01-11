@@ -1,0 +1,73 @@
+delimiter //
+drop database if exists c1db2;
+create database c1db2;
+use c1db2;
+
+/*1:N step 4a total participation
+Foreign key "username" on n-side, also primary key on n-side
+username becomes the primary key in users table 1-side*/
+create table Users(
+    Username varchar(16) not null,
+    Password blob not null,
+    Email varchar(32) not null,
+    ProfilImage blob not null,
+    Admin tinyint(1) not null,
+    Activated tinyint(1) not null,
+    primary key(Username),
+    unique(Username)
+);
+
+/* step 5
+ N:M partial participation
+ composite key (sammensat)
+ Primary key contributions also declared as foreign keys */
+create table Listener(
+    UsernameListener varchar(16) not null,
+    UsernameListensTo varchar(16) not null,
+    primary key(UsernameListener),
+    foreign key(UsernameListener) references Users(Username) on delete cascade,
+    foreign key(UsernameListensTo) references Users(Username) on delete cascade
+);
+
+/* step 4a 1:N, Total participation
+Foreign key username on n-side "username"
+YaddaID becomes primary key, since it can go in relation with the other without breaking the rules */
+create table Yadda(
+    YaddaID int(16) auto_increment,
+    Text varchar(160) not null,
+    Username varchar(16) not null,
+    DateAndTime datetime not null,
+    primary key(YaddaID),
+    foreign key(Username) references Users(Username) on delete cascade
+);
+
+/* step 4a 1:N, Total participation
+Foreign key attribute on n-side
+YaddaID.Tag becomes primary key, since it can go in relation with the other without breaking the rules */
+create table Tag(
+    YaddaID int(16) not null,
+    Tagname varchar(16) not null,
+    primary key(YaddaID),
+    foreign key(YaddaID) references Yadda(YaddaID) on delete cascade
+);
+
+/* Weak Entities step 2
+Appoint the primary key from the strong entity as primary key "YaddaID"
+Declare the primary key attribute as foreign key as well */
+create table Image(
+    YaddaID int(16) not null,
+    Imagedata blob not null,
+    primary key(YaddaID),
+    foreign key(YaddaID) references Yadda(YaddaID) on delete cascade
+);
+
+/* Weak Entities step 2
+Appoint the primary key from the strong entity as primary key "YaddaID"
+Declare the primary key attribute as foreign key as well */
+create table Reply(
+    YaddaID int(16) not null,
+    YaddaIDReply int(16) not null,
+    primary key(YaddaID),
+    foreign key(YaddaID) references Yadda(YaddaID) on delete cascade
+);
+//

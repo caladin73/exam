@@ -1,0 +1,61 @@
+--server login information command line
+mysql -u c1dbu1 -pRs0Kv0Imn5 -h 84.19.166.106 c1db2
+
+show tables;
+describe view_yaddas_no_replies;
+describe view_allUsers;
+select * from view_yaddas_no_replies;
+select Username, lft, rght, replies from view_yaddas_no_replies;
+
+delimiter //
+
+--create view as
+CREATE VIEW view_name AS
+SELECT column1, column2.....
+FROM table_name
+WHERE [condition];
+
+-- create view, to show parent yadda only, and count number of replies
+DROP VIEW  IF EXISTS view_yaddas_no_replies;
+CREATE VIEW view_yaddas_no_replies AS
+  SELECT y.*, (
+      SELECT  COUNT(r.YaddaID)
+      FROM    Reply r
+      WHERE   r.YaddaID = y.YaddaID
+      ) AS replies
+  FROM Yadda y
+      WHERE y.YaddaID NOT IN (SELECT r.YaddaIDReply
+      FROM Reply r)
+  ORDER BY y.DateAndTime DESC, y.YaddaID;//
+
+--Select from view
+SELECT * FROM view_yaddas_no_replies;//
+SELECT * FROM view_yaddas_no_replies WHERE YaddaID = "155";//
+
+-- create view, show all users
+DROP VIEW IF EXISTS view_allUsers;
+CREATE VIEW view_allUsers AS
+  SELECT Username, Name, Email, Admin, Activated
+  FROM Users;//
+
+--list all users with rank from view
+SET @rank=0;
+SELECT @rank:=@rank+1 Rank, Username, Name, Email, Admin, Activated
+FROM view_allUsers
+GROUP BY Username
+ORDER BY Rank ASC;//
+
+--select and show parent yadda with replies
+SELECT y.*, (
+  SELECT COUNT(r.YaddaID)
+  FROM Reply AS r
+  WHERE r.YaddaID = y.YaddaID) AS Replies
+FROM Yadda y
+WHERE y.YaddaID IN (
+    SELECT r.YaddaIDReply
+    FROM Reply AS r
+    WHERE r.YaddaID = 155
+);//
+
+--to see if an view is_updatable
+select table_name, is_updatable from information_schema.views where table_schema = 'c1db2';//
