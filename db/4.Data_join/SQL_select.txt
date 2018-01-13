@@ -1,0 +1,29 @@
+mysql -u c1dbu1 -pRs0Kv0Imn5 -h 84.19.166.106 c1db2
+
+/*
+SELECT statement from project yadda, to find all
+replies to an parrent yadda.
+2 tables, Yadda and Reply YaddaID = ReplyID
+YaddaID = 155, 5 replies to from the same user
+*/
+
+DELIMITER //
+SELECT y.*, (
+  SELECT COUNT(r.YaddaID)
+  FROM Reply AS r
+  WHERE r.YaddaID = y.YaddaID) AS Replies
+FROM Yadda y
+WHERE y.YaddaID IN (
+    SELECT r.YaddaIDReply
+    FROM Reply AS r
+    WHERE r.YaddaID = 155
+);//
+
+
+--SQL notes
+SELECT COUNT(116) AS Replies
+FROM Reply r
+WHERE r.YaddaID = 155;//
+
+select * from Reply order by YaddaID;//
+select * from Yadda order by YaddaID;//
