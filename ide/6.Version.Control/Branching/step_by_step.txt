@@ -1,0 +1,18 @@
+//bash in folder
+git init
+
+// create new branch peter and set it to that branch
+git checkout -b peter
+
+// change something in text file and stage + commit
+git add .
+git commit -m "some changes"
+
+//change to master
+git checkout master
+
+// see that nothing is change on master file
+// merge branches
+git merge peter
+
+//check that file is merged
