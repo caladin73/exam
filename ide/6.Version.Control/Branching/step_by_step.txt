@@ -1,5 +1,7 @@
-//bash in folder
+//bash in folder, init repo + add and commit
 git init
+git add . 
+git commit -m "first"
 
 // create new branch peter and set it to that branch
 git checkout -b peter

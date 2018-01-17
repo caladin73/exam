@@ -5,7 +5,7 @@ git add .
 git commit -m "first"
 git log 
 //copy hash
-git format-patch -1 e2391119006a67cc64e1bfd2a37d38e8d4005076 -o patches
+git format-patch -1 30196958f9dc19488b307c7faaa16fabfa6005c2 -o patches
 
 //copy name and apply into new folder b
 git init 
@@ -14,6 +14,7 @@ git am 0001-first.patch
 //back again, edit file
 git add .
 git commit -m "new line"
-git format-patch -1 27c28bc32049fc7c228d0505e7589153d7fa9ede -o patches
+git log
+git format-patch -1 8647146b4385c80ff0472c9f4f0acd45547c34e0 -o patches
 //copy file to a
-git am 0001-change.patch
+git am 0001-new-line.patch
