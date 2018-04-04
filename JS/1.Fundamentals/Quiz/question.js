@@ -1,4 +1,4 @@
-var questions = [{
+var questions = [{ //array with properties
 	"question": "The first mechanical computer designed by Charles Babbage was called ?",
 	"option1": "Abacus",
 	"option2": "Analytical Engine",
@@ -12,7 +12,10 @@ var questions = [{
 	"option3": "Super computer",
 	"option4": "Megaframe",
 	"answer": "3"
-}, {
+}];
+
+/* remove last question for faster access to result!
+, {
 	"question": "Which is a single integrated circuit?",
 	"option1": "Gate",
 	"option2": "Mother Board",
@@ -68,4 +71,6 @@ var questions = [{
 	"option3": "Central Processing Unit",
 	"option4": "Control Unit",
 	"answer": "3"
-}];
+}
+];
+*/
