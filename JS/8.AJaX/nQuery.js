@@ -1,11 +1,7 @@
 'use strict';
-
-let ajax = function () {
-    let ajaxobj = false;
-    try {
-        ajaxobj = new XMLHttpRequest();
-    } catch(err) {
-        window.alert(err.message + " Get yourself a browser ;)");
-    }
-    return ajaxobj;
+/**
+ * nQuery, *the* JS Framework
+ */
+var $ = function (foo) {
+    return document.getElementById(foo);    // save keystrokes
 }
