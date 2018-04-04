@@ -30,7 +30,7 @@ function loadNextQuestion () {
 	if(questions[currentQuestion].answer == answer){ //if the answer is right (selected option = array.answer)
 		score += 10; //add 10 point to score for right answer
 	}
-	selectedOption.checked = false; //set selected option = false
+	selectedOption.checked = false; //uncheck radion optinn for next question
 	currentQuestion++; //adds 1 to current quiestion index
 	if(currentQuestion == totQuestions - 1){ //if this is the end, no more question
 		nextButton.textContent = 'Finish';
@@ -41,7 +41,7 @@ function loadNextQuestion () {
 		resultCont.textContent = 'Your Score: ' + score; //show score
 		return;
 	}
-	loadQuestion(currentQuestion); //in other cases will load next question
+	loadQuestion(currentQuestion); //load next question
 }
 
-loadQuestion(currentQuestion);
+loadQuestion(currentQuestion); //load first question

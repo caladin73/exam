@@ -1,4 +1,4 @@
-var questions = [{ //array with properties
+var questions = [{ //array
 	"question": "The first mechanical computer designed by Charles Babbage was called ?",
 	"option1": "Abacus",
 	"option2": "Analytical Engine",
