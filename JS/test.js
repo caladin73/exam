@@ -1,5 +1,1 @@
-let name = Function ([arguments]) {
-    statement1;
-    statementm;
-    [return [variable];]
-}
+var myElement = document.getElementById("intro");
