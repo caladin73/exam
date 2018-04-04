@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'/>
+    <title>AJaX</title>
+    <script src='nQuery.js'></script>
+    <script src='ajax.js'></script>
+    <script src='getNewContent.js'></script>
+    <script src='prepPage.js'></script>
+</head>
+<body>
+<h1>Niels' AJaX Demo</h1>
+<section>
+    <h2>Get Fortune Text from Server</h2>
+    <div id='new'></div>
+    <p><button id='fortune'>Fortune</button></p>
+</section>
+
+<section>
+    <h2>Get Weather XML from Server</h2>
+    <div id='latest'></div>
+    <p><button id='weather'>Weather</button></p>
+</section>
+
+<section>
+    <h2>Get JSON from Server</h2>
+    <div id='verylatest'></div>
+    <p><button id='jsonvar'>Well &hellip;</button></p>
+</section>
+
+<section>
+    <h2>Get JSON from External Server (Fails, CORS)</h2>
+    <div id='veryverylatest'></div>
+    <p><input type='text' id='sq'/><button id='sea'>Go Get It!</button></p>
+</section>
+</body>
+</html>
