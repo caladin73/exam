@@ -1,6 +1,6 @@
 <?php
-require_once './DbP.inc.php';
-require_once './DbH.inc.php';
+require_once 'inc/DbP.inc.php';
+require_once 'inc/DbH.inc.php';
 $dbh = DbH::getDbH();
 $sql = "select id, name, population";
 $sql .= " from city";
