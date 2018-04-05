@@ -1,13 +1,21 @@
-
+<!DOCTYPE html>
 <html>
-
 <head>
-    <title>DOM Tutorial</title>
+    <meta charset="utf-8">
 </head>
-
 <body>
-<h1>DOM Lesson one</h1>
-<p>Hello world!</p>
-</body>
 
+<p id="demo"></p>
+
+<script>
+    var x = toCelsius(77);
+    console.log("The temperature is " + x + " Celsius");
+
+    function toCelsius(fahrenheit) {
+        return (5/9) * (fahrenheit-32);
+    }
+
+</script>
+
+</body>
 </html>
