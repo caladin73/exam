@@ -5,8 +5,9 @@
     <script>
         $(document).ready(function(){
             $("button").click(function(){
-                $("p").hide(1000);
-                alert("The paragraph is now hidden");
+                $("p").hide("slow", function(){
+                    alert("The paragraph is now hidden");
+                });
             });
         });
     </script>
