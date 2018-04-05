@@ -13,7 +13,6 @@
                     if (xhr.status === 200){
                         console.log("xhr done successfully");
                         var resp = xhr.responseText;
-                        var respJson = JSON.parse(resp);
                     } else {
                         console.log("xhr failed");
                     }
@@ -23,8 +22,7 @@
             }
             console.log("request sent succesfully");
         }
-        // git hub url to get btford details
-        var URL = "https://api.github.com/users/btford";
+        var URL = "example.txt";
         makeAjaxCall(URL, "GET");
 
     </script>
