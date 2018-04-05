@@ -1,4 +1,4 @@
-// Vehicle - superclass
+// Vehicle - "superclass"
 function Vehicle(name) {
     this.name = name;
 }
