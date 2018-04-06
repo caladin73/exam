@@ -2,18 +2,19 @@ var currentQuestion = 0; //index of current question
 var score = 0; //current score
 var totQuestions = questions.length;
 
-var container = document.getElementById('quizContainer');
+
+var container = document.getElementById('quizContainer'); //from div container
 var questionEl = document.getElementById('question'); //question element
 var opt1 = document.getElementById('opt1'); // 4 option in each question
 var opt2 = document.getElementById('opt2');
 var opt3 = document.getElementById('opt3');
 var opt4 = document.getElementById('opt4');
 var nextButton = document.getElementById('nextButton'); // next question, if clicked a question
-var resultCont = document.getElementById('result');
+var resultCont = document.getElementById('result'); //result container
 
-function loadQuestion (questionIndex) { //method for loading question index,
-	var q = questions[questionIndex];
-	questionEl.textContent = (questionIndex + 1) + '. ' + q.question;
+function loadQuestion (questionIndex) { //method for loading question from array index
+	var q = questions[questionIndex]; //if index = 0 first question is loaded
+	questionEl.textContent = (questionIndex + 1) + '. ' + q.question; //send the text content to container
 	opt1.textContent = q.option1; //4 options in each question
 	opt2.textContent = q.option2;
 	opt3.textContent = q.option3;
@@ -21,7 +22,7 @@ function loadQuestion (questionIndex) { //method for loading question index,
 };
 
 function loadNextQuestion () {
-	var selectedOption = document.querySelector('input[type=radio]:checked'); // method to check if answer is selected
+	var selectedOption = document.querySelector('input[type=radio]:checked'); // method to check if an answer is selected
 	if(!selectedOption){ //checks if no answer is selected
 		alert('Please select your answer!'); //alert message
 		return;
