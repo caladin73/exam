@@ -3,7 +3,7 @@
 /*
  * nmlCanvas80.js
  */
-let initialize = function () {
+let initialize = function () { //initialize on load
     /*
      * create two canvases and put two shapes into the right one
      * via an array
@@ -48,12 +48,12 @@ let select = function (ev) {
         cx.closePath();
         let bb = this.getBoundingClientRect();    // get canvas as std obj
         // convert mouse coordinates to canvas coordinates
-        let x = (ev.clientX - bb.left) * (this.width / bb.width);
+        let x = (ev.clientX - bb.left) * (this.width / bb.width); //since mouse cordinates start in top letf we need to minus them frem origion of canvas
         let y = (ev.clientY - bb.top) * (this.height / bb.height);
         if (cx.isPointInPath(x, y)) {
             // we're in a loop, is this array element the
             // one we clicked? If yes click in other canvas
-            mycv2.canvas.addEventListener('click', function placeInRoom(e) {
+            mycv2.canvas.addEventListener('click', function placeInRoom(e) { //addEventListner on toolbox check if clicked on shape
                 let bb1 = this.getBoundingClientRect();    // yes
                 // other canvas as std object
                 // convert mouse coordinates to canvas coordinates
