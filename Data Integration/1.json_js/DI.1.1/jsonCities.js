@@ -22,3 +22,4 @@ let jsonCitiesString = `[
     { "id": 19, "city": "Mizur", "lat": 42.8509219, "lon": 44.0546008, "country": "Russia" }, 
     { "id": 20, "city": "Velké Hoštice", "lat": 49.936089, "lon": 17.9738035, "country": "Czech Republic" }
 ]`;
+
