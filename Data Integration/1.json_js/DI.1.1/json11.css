@@ -1,0 +1,24 @@
+section {
+    float:left;
+    width: 48%;
+}
+div {
+    height: 100px;
+    margin: 0 0 .9em 0;
+    outline: 1px solid fuchsia;
+}
+table {
+    font-family: monospace;
+    margin: 0 10px;
+}
+table, td {
+    border: 1px solid black;
+}
+td {
+    height: 1em;
+    width: 80px;
+}
+td:first-child {
+    height: 1em;
+    width: 150px;
+}
