@@ -10,13 +10,17 @@ if (!$con) {
 mysqli_select_db($con,"newworld");
 $sql="SELECT name FROM ".$obj->table." limit ".$obj->limit."";
 $result = mysqli_query($con,$sql);
+
 $outp = array();
 $outp = $result->fetch_all(MYSQLI_ASSOC);
 
-echo json_encode($outp);
+$content = json_encode($outp);
+echo $content;
+
+file_put_contents('examplejson2f.json', $content);
 
 mysqli_close($con);
 ?>
 
 </body>
-</html> 
+</html>
