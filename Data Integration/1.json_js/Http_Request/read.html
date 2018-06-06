@@ -31,12 +31,12 @@
         xhttp.open("GET", "package.json", true);
         xhttp.send();
     }
-    function myFunction(xml) {
+    function myFunction(arr) {
         var i;
-        var xmlDoc = JSON.parse();
+        var xmlDoc = JSON.parse(arr);
         var table="<tr><th>Artist</th><th>Title</th></tr>";
         var x = xmlDoc.getElementsByTagName("CD");
-        for (i = 0; i <x.length; i++) {
+        for (i = 0; i <arr.length; i++) {
             table += "<tr><td>" +
                 x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
                 "</td><td>" +
