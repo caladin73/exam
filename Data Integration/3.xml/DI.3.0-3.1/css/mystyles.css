@@ -1,0 +1,34 @@
+h1 {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+table {
+    margin: auto;
+}
+
+table, td, th {
+    border: 1px solid blue;
+}
+td.black {
+    background-color: black;
+}
+td.red {
+    background-color: red;
+}
+td.green {
+    background-color: green;
+}
+td.blue {
+    background-color: blue;
+}
+td.silver {
+    background-color: silver;
+}
+td.gray {
+    background-color: gray;
+}
+td.white {
+    background-color: yellow;
+}
+.rig { text-align: right; }
