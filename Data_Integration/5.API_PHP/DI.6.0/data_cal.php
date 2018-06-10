@@ -1,6 +1,6 @@
 <?php
 $json = file_get_contents('data.json');
-$res = json_decode($json, true);
+$res = json_decode($json, true); //Takes a JSON encoded string and converts it into a PHP variable
 
 $a = array();
 $b = array();
@@ -22,5 +22,5 @@ $reslength = count($res);
 
 $content = json_encode($a);
 file_put_contents('cal.json', $content);
-//echo $content;
+
 

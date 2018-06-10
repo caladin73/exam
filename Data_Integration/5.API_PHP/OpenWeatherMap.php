@@ -1,6 +1,6 @@
 <?php
 
-$url = 'http://api.openweathermap.org/data/2.5/weather?q=Kolding,dk&appid=818105d2f232ae11a90fe3f295d523cc';
+$url = 'http://api.openweathermap.org/data/2.5/weather?q=Kolding,dk&appid=818105d2f232ae11a90fe3f295d523cc'; //for metric: &units=metric
 $chandle = curl_init($url);
 
 curl_setopt($chandle, CURLOPT_RETURNTRANSFER, true);
@@ -45,4 +45,4 @@ function prettyPrintForDebug($obj) {
     $str = json_encode($obj, JSON_PRETTY_PRINT);
     print("<pre>".$str."</pre>");
 }
-function K2C($x) { return $x - 276; }
+function K2C($x) { return $x - 273; } //convert kelvin to celsius

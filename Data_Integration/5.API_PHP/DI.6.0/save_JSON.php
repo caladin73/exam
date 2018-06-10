@@ -4,16 +4,16 @@ $chandle = curl_init($url);
 $urlnew = 'data.json';
 $a = [];
 
-curl_setopt($chandle, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chandle, CURLOPT_RETURNTRANSFER, true); //Sets an option on the given cURL session handle.
 $res = curl_exec($chandle);
 curl_close($chandle);
 
-// receiced as a one line json string
-$obj = json_decode($res); // unserialize to json obj
-//prettyPrintForDebug($obj);   // comment out after debugging
-createNewJson($obj, $a, $urlnew);
-//prettyPrintForDebug($urlnew);
 
+$obj = json_decode($res); // converts JSON string into a PHP variable
+
+createNewJson($obj, $a, $urlnew);
+
+//make new JSON with as value pair index:value
 function createNewJson($o, &$a, &$urlnew) {
     $k = '';
     $i = 0;
@@ -28,7 +28,6 @@ function createNewJson($o, &$a, &$urlnew) {
         array_push($a, $aa);
         $i++;
     }
-    $json = json_encode($a);            // array of objects to json
-    file_put_contents($urlnew, $json);
+    $json = json_encode($a); // array of objects to JSON
+    file_put_contents($urlnew, $json); //save new JSON to file data,json
 }
-
