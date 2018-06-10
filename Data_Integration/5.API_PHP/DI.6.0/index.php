@@ -19,8 +19,9 @@ $content = json_decode($json, true);
 <body>
 <h1>Assignment DI.6.0</h1>
 
-<p><b>save_JSON.php:</b>> saves the API retrial to a json file <a href="data.json">"data.json"</a><br>
-    <b>cal.php:</b> calculates numbers and saves them to a new json file <a href="cal.json">"cal.json"</a></p>
+<p>raw JSON from API <a href="folk1c.json">"folk1c.json"</a><br>
+    save_JSON.php: saves the API retrial to a json file <a href="data.json">"data.json"</a><br>
+    cal.php: calculates numbers and saves them to a new json file <a href="cal.json">"cal.json"</a></p>
 
 <table border="1">
     <tr>
