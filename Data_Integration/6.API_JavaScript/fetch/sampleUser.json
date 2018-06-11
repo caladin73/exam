@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Allan Andersen",
+        "email": "allanandersen@gmail.com"
+    },
+    {
+        "id": 2,
+        "name": "Benny bendtsen",
+        "email": "bennydebtsenbo@gmail.com"
+    },
+    {
+        "id": 3,
+        "name": "Carl Emil",
+        "email": "carlemil@mail.com"
+    },
+    {
+        "id": 4,
+        "name": "Daniel Danielsen",
+        "email": "danieldanielsen@mail.com"
+    }
+
+]

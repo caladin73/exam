@@ -12,14 +12,16 @@
 <div id="weather"></div>
 
 <script>
-    var url = "http://api.openweathermap.org/data/2.5/weather?q=Kolding,dk&appid=818105d2f232ae11a90fe3f295d523cc&units=metric";
+    const url = "http://api.openweathermap.org/data/2.5/weather?q=Kolding,dk&appid=818105d2f232ae11a90fe3f295d523cc&units=metric";
     fetch(url)
         .then(function(response) {
-            return response.json();
+            return response.json(); //Creates a new Response object.
         })
         .then(function(myJson) {
+            console.log(myJson);
             console.log(myJson.main.temp_min);
             console.log(myJson.main.temp_max);
+
             var output = "Min temp: " + myJson.main.temp_min + "<br>" + "Max Temp: " + myJson.main.temp_max;
             document.getElementById("weather").innerHTML = output;
         });

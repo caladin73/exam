@@ -1,6 +1,0 @@
-#.htaccess file configuration
-
-RewriteEngine On # Turn on the rewriting engine
-RewriteBase /exam/Data_Integration/4.REST/DI.5.0/
-RewriteRule ^clients$ index.php [NC,L]
-RewriteRule ^clients/([a-z]*)/?$ serverNG.php?name=$1 [NC,L]
