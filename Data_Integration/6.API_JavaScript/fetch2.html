@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch</title>
+</head>
+
+<body>
+
+<h1>Fetch Example with API</h1>
+
+
+<script>
+    async function getJson(url) {
+
+        let r = await fetch(url);
+        let responseJSON = await r.json();
+        for(post of responseJSON.data.children) {
+            let d = post.data;
+            console.log(`Title: ${d.title}\nUrl:${d.url}`);
+        }
+    }
+    getJson('https://www.reddit.com/r/all/.json');
+</script>
+
+</body>
+</html>
