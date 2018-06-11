@@ -13,7 +13,7 @@ $obj = json_decode($res); // converts JSON string into a PHP variable
 
 createNewJson($obj, $a, $urlnew);
 
-//make new JSON with as value pair index:value
+//make new JSON as value pair index:value
 function createNewJson($o, &$a, &$urlnew) {
     $k = '';
     $i = 0;
