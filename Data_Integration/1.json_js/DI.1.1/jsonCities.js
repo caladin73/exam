@@ -1,5 +1,4 @@
-// https://www.w3.org/TR/REC-html40/types.html#h-6.5
-let jsonCitiesString = `[
+let jsonCitiesString = `[ 
     { "id": 0, "city": "", "lat": 0, "lon": 0, "country": "GB" }, 
     { "id": 1, "city": "Sortavala", "lat": 61.6487504, "lon": 30.5926449, "country": "Russia" }, 
     { "id": 2, "city": "Yufrus", "lat": "13.45529", "lon": "43.94704", "country": "Yemen" }, 

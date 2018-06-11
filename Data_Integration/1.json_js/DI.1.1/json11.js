@@ -56,7 +56,3 @@ var sphDist = function(lat0, lon0, lat1, lon1) {
     return R * raddelta;
 }
 window.addEventListener('load', gotor);
-
-var obj = { "name":"John", "age":30, "city":"New York"};
-var myJSON = JSON.stringify(obj);
-//document.getElementById("demo").innerHTML = myJSON;
