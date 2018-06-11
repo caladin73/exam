@@ -15,6 +15,7 @@
         var url = "http://api.openweathermap.org/data/2.5/weather?q=Kolding,dk&appid=818105d2f232ae11a90fe3f295d523cc&units=metric";
 
         // Called whenever the readyState attribute changes
+        // 4 = request finish and response i ready, 200 = ok, status of request
         xhr.onreadystatechange = function() {
 
             // Check if fetch request is done
@@ -40,14 +41,7 @@
             console.log((data.main.temp_max));
 
             document.getElementById("weather").innerHTML = output;
-
-
         }
-
-
-
-
-
 </script>
 <div id="weather"></div>
 </body>
