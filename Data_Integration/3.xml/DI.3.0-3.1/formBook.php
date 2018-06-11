@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Book input</title>
-    <link rel='stylesheet' href='css/mystyles.css'/>
+
 
 </head>
 

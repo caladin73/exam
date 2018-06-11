@@ -10,7 +10,7 @@
         // Read the XML document into a SimpleXMLElement object
         $xml_books = simplexml_load_file("./data/booksXML2.xml"
                 , "SimpleXMLElement"
-                , LIBXML_NOCDATA );
+                , LIBXML_NOCDATA ); //Merge CDATA as text nodes
 
 ?>
 <h1>Books</h1>

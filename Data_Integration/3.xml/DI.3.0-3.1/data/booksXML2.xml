@@ -181,4 +181,26 @@
       <comment>NA</comment>
     </comments>
   </book>
+  <book ref="Reference" mycanon="Mycanon">
+    <title>Book title:</title>
+    <edition>1</edition>
+    <authors>
+      <author>
+        <firstname>Firstname</firstname>
+        <lastname>Lastname</lastname>
+      </author>
+    </authors>
+    <publisher>
+      <name>Name</name>
+      <year>1999</year>
+      <place>Publisher Place:</place>
+    </publisher>
+    <pages>99</pages>
+    <isbn>ISBN 8700398365</isbn>
+    <price>99</price>
+    <currency>GBP</currency>
+    <comments>
+      <comment>Comment</comment>
+    </comments>
+  </book>
 </booksCanon>

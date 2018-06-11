@@ -3,7 +3,7 @@ function libxml_display_error($error)
 {
     $return = "<br/>\n";
     switch ($error->level) {
-        case LIBXML_ERR_WARNING:
+        case LIBXML_ERR_WARNING: //contains various information about errors thrown by libxml
             $return .= "<b>Warning $error->code</b>: ";
             break;
         case LIBXML_ERR_ERROR:

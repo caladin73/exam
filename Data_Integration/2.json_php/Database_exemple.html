@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
     <script>
-        obj = { "table":"city", "limit":10 };
-        dbParam = JSON.stringify(obj);
-        xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
+        obj = { "table":"city", "limit":10 }; //JSON Object with parameters for database select
+        dbParam = JSON.stringify(obj);  //convert to string
+        xmlhttp = new XMLHttpRequest(); //make XMLHttpRequest object
+        xmlhttp.onreadystatechange = function() {   //check status
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("demo").innerHTML = this.responseText;
+                document.getElementById("demo").innerHTML = this.responseText;  //get response text
             }
         };
-        xmlhttp.open("GET", "getCities.php?x=" + dbParam, true);
+        xmlhttp.open("GET", "getCities.php?x=" + dbParam, true);    //use get and send parameters to php file
         xmlhttp.send();
     </script>
 
