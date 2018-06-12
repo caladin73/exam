@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>XMLHttpRequest</title>
+</head>
+
+<body>
+
+<h1>The XMLHttpRequest for Open Weather data</h1>
+
+<script>
+        // Store XMLHttpRequest and the JSON file location in variables
+        var xhr = new XMLHttpRequest();
+        var url = "http://api.openweathermap.org/data/2.5/weather?q=Kolding,dk&appid=07e02ba24a3caf7f46c40b512f315fc6&units=metric";
+
+        // Called whenever the readyState attribute changes
+        // 4 = request finish and response i ready, 200 = ok, status of request
+        xhr.onreadystatechange = function() {
+
+            // Check if fetch request is done
+            if (xhr.readyState == 4 && xhr.status == 200) {
+
+                // Parse the JSON string
+                var jsonData = JSON.parse(xhr.responseText);
+
+                // Call the showWeather(), passing in the parsed JSON string
+                showWeather(jsonData);
+            }
+        };
+
+        // HTTP call using the url variable we specified above
+        xhr.open("GET", url, true);
+        xhr.send();
+
+        // Function that formats the string with HTML tags, then outputs the result
+        function showWeather(data) {
+            var output = "Min temp: " + data.main.temp_min + "<br>" + "Max Temp: " + data.main.temp_max;
+
+            console.log((data.main.temp_min));
+            console.log((data.main.temp_max));
+
+            document.getElementById("weather").innerHTML = output;
+        }
+</script>
+<div id="weather"></div>
+</body>
+</html>

@@ -9,7 +9,7 @@ $oauth_handler = new \Evernote\Auth\OauthHandler($sandbox);
 // Config
 $key      = 'houdek8a-6942';
 $secret   = '33c4741f347e24b0';
-$callback = 'http://localhost/research/index.php';
+$callback = 'http://localhost/exam/Data_Integration/0.evernote/research/index.php';
 
 // Auth
 $oauth_data  = $oauth_handler->authorize($key, $secret, $callback);

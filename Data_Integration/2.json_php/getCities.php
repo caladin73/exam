@@ -6,7 +6,7 @@ if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
 
-$obj = json_decode($_GET["x"], false);
+$obj = json_decode($_GET["x"], false); //sync
 
 mysqli_select_db($con,"newworld");
 
