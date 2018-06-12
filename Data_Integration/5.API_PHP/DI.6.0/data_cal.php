@@ -1,6 +1,6 @@
 <?php
 $json = file_get_contents('data.json');
-$res = json_decode($json, true); //Takes a JSON encoded string and converts it into a PHP variable
+$res = json_decode($json, true); //decode JSON file
 
 $a = array();
 $b = array();
