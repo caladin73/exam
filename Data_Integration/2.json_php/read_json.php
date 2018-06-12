@@ -10,7 +10,7 @@ $content = json_decode($json);                      // string to json
 </head>
 <body>
 <h1>Content From a Read JSON File</h1>
-<pre><?php //var_dump($content);?></pre> <!-- for debug only -->
+
 <table>
     <tr><th>Id</th><th>Name</th><th>Country code</th><th>Pop</th></tr>
     <?php
