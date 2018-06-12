@@ -11,8 +11,8 @@
 
 <script>
     getJson('https://www.reddit.com/r/all/.json');
-    async function getJson(url) {
-        let r = await fetch(url);
+    async function getJson(url) { //transforms a regular function into a Promise, When called async functions resolve with whatever is returned in their body.,
+        let r = await fetch(url); // pauses the execution of async functions. (var result = await someAsyncCall();).
         let responseJSON = await r.json();
         for(post of responseJSON.data.children) {
             let d = post.data;
