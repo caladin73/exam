@@ -17,6 +17,7 @@
                             <xs:enumeration value="ES" />
                             <xs:enumeration value="UK" />
                             <xs:enumeration value="US" />
+                            <xs:enumeration value="DK" />
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>

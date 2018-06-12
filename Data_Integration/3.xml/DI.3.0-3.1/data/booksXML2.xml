@@ -203,4 +203,26 @@
       <comment>Comment</comment>
     </comments>
   </book>
+  <book ref="sd" mycanon="wef">
+    <title>Min bog 1</title>
+    <edition>1</edition>
+    <authors>
+      <author>
+        <firstname>phm</firstname>
+        <lastname>Rowling</lastname>
+      </author>
+    </authors>
+    <publisher>
+      <name>Name</name>
+      <year>2018</year>
+      <place/>
+    </publisher>
+    <pages>34</pages>
+    <isbn/>
+    <price>33</price>
+    <currency>GBP</currency>
+    <comments>
+      <comment/>
+    </comments>
+  </book>
 </booksCanon>
