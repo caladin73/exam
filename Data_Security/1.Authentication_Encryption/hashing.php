@@ -67,5 +67,7 @@ if($input !== '') {
         $input."0", password_verify($input."0", $bcrypt2) ? "match" : "no match");
 }
 ?>
+
+<p>Try and crack the hashed password here: <a href="https://crackstation.net/">crackstation.net</a></p>
 </body>
 </html>
