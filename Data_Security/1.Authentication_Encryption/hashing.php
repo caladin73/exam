@@ -53,7 +53,7 @@ if($input !== '') {
         strlen($bcrypt2), $bcrypt2,
         strlen($bcrypt3), $bcrypt3,
         strlen($blowfish), $blowfish);
-    //strlen($argon2i), $argon2i);
+        //strlen($argon2i), $argon2i);
 
     printf("<table>
             <tr><td>password_verify bcrypt0</td><td>%s</td><td>%s</td></tr>
