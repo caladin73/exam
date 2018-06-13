@@ -49,8 +49,8 @@ $title = 'login0.php';
             <?php
         }
         ?>
-        <p><a href='./login0p1.php'>Page 1 requires to be logged in</a></p>
-        <p><a href='./login0p2.php'>Page 2, free access</a></p>
+        <p><a href='./login0p1.php'>Login to get access</a></p>
+        <p><a href='./login0p2.php'>Free access</a></p>
     </section>
 </main>
 <footer><?php print($copy);?></footer>
