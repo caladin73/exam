@@ -6,7 +6,7 @@
 
 
 /*
-Run this command from command line
+Run this command from command line in this folder:
 php bruteforce.php -- localhost Security/Sec.1.1/login0Auth.php darkuids.txt darkpwds.txt darkresults.txt
 */
 
