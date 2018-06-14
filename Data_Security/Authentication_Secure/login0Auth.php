@@ -3,11 +3,6 @@ session_start();
 require_once('DbH.inc.php');
 $dbh = DbH::getDbH();
 
-// if there is content in POST authenticate
-// sqlinj vulnerable
-
-$time_now = date('Y-m-d H:i:s');
-
 if (count($_POST) > 0) {
     //finder tiden for sidste login forsøg i user table
     $sql = "select *";
@@ -20,6 +15,7 @@ if (count($_POST) > 0) {
     $selectedTime = $obj->login_time;
 
     //konverter tider og lægger 10 sekunder til sidste login forsøg
+    $time_now = date('Y-m-d H:i:s');
     $endTime = strtotime("+10 seconds", strtotime($selectedTime));
     $time_last_plus_10_sec =  date('Y-m-d H:i:s', $endTime);
 
