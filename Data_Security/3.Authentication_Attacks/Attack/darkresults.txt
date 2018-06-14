@@ -1,0 +1,7 @@
+
+user=nobody&password=qwerty Content-Length: 169
+user=nobody&password=123456 Content-Length: 169
+user=nobody&password=abc123 Content-Length: 169
+user=nobody&password=test Location: ./login0.php?success
+user=nobody&password=test Content-Length: 147
+user=nobody&password=password Content-Length: 169

