@@ -9,7 +9,7 @@ if (count($_POST) > 0) {
     $sql .= " FROM user";
     $sql .= " WHERE uid = '". $_POST['user'] ."'";
     $sql .= " AND pwd = '" . md5($_POST['password']) . "'";
-    //echo $sql;
+    echo $sql . "<br>";
     //die();
     //try {
         $s = $dbh->prepare($sql);
