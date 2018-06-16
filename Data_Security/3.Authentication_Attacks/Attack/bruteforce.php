@@ -6,12 +6,12 @@
 
 
 /*
-Run this command from command line in this folder:
-php bruteforce.php -- localhost Security/Sec.1.1/login0Auth.php darkuids.txt darkpwds.txt darkresults.txt
+
+
 */
 
 if (count($argv) != 7) {
-    $s = "php bruteforce.php -- localhost urlpath userids passwords results\n";
+    $s = "php bruteforce_hash_vertify.php -- localhost urlpath userids passwords results\n";
     $s .= "the latter three being filenames\n";
     die($s);
 }
@@ -51,7 +51,6 @@ foreach($idsa as $uid) {
             fclose($handle);
             /* Check response */
             var_dump($response);
-            //die();
             preg_match('/Location: \S+/', $response, $m, PREG_OFFSET_CAPTURE);
             if (count($m))
                 $s .= sprintf("\n%s %s", $content, $m[0][0]);

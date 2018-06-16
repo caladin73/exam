@@ -1,7 +1,7 @@
 <?php
 session_start();
-$copy = "";
-$title = $_SERVER['PHP_SELF'];
+$copy = "&copy; NML, 2018";
+$title = 'NMLs Login Demo - Front Page';
 
 ?><!doctype html>
 <html>
@@ -49,8 +49,8 @@ $title = $_SERVER['PHP_SELF'];
             <?php
         }
         ?>
-        <p><a href='./login0p1.php'>Restricted access (login0p1.php)</a></p>
-        <p><a href='./login0p2.php'>Free access (login0p2.php)</a></p>
+        <p><a href='./login0p1.php'>Page 1</a></p>
+        <p><a href='./login0p2.php'>Page 2</a></p>
     </section>
 </main>
 <footer><?php print($copy);?></footer>

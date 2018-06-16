@@ -4,8 +4,7 @@ require_once('DbH.inc.php');
 $dbh = DbH::getDbH();
 
 // if there is content in POST authenticate
-// sqlinj vulnerable, attack fails because proper pwd test
-// brute force vulnerable
+// sqlinj vulnerable
 if (count($_POST) > 0) {
     $sql = "select uid, realname, pwd";
     $sql .= " from user";

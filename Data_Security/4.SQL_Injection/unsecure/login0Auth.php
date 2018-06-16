@@ -2,29 +2,29 @@
 session_start();
 require_once('DbH.inc.php');
 $dbh = DbH::getDbH();
-
-// if there is content in POST authenticate
-// sqlinj vulnerable, attack fails because proper pwd test
-// brute force vulnerable
+//Example 45.10. Authentication Code, the Wrong Way
+//sql injection vulnerable
 if (count($_POST) > 0) {
-    $sql = "select uid, realname, pwd";
-    $sql .= " from user";
-    $sql .= " where uid = '". $_POST['user'] ."'";
-    $sql .= " and activated;";
-    try {
+    $sql = "SELECT *";
+    $sql .= " FROM user";
+    $sql .= " WHERE uid = '". $_POST['user'] ."'";
+    $sql .= " AND pwd = '" . md5($_POST['password']) . "'";
+    echo $sql . "<br>";
+    //die();
+    //try {
         $s = $dbh->prepare($sql);
         $s->execute();
         $obj  = $s->fetch(PDO::FETCH_OBJ);
-        if ($obj && password_verify($_POST['password'], $obj->pwd)) {
+        if ($obj) {
             $_SESSION['demoLoginId'] = $obj->uid;
             header("Location: ./login0.php?success");
         } else {
             unset($_SESSION['demoLoginId']);
             header("Location: ./login0.php?err=noSuccess");
         }
-    } catch (PDOException $e) {
+    //} catch (PDOException $e) {
         die(sprintf("Unexpected error<br/>\n", $e->getMessage()));
-    }
-} else {
+    //}
+//} else {
     header("Location: ./login0.php?err=noData");
 }
