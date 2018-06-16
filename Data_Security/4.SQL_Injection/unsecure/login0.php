@@ -29,7 +29,7 @@ $title = 'NMLs Login Demo - Front Page';
                 <fieldset>
                     <legend>login</legend>
                     <label for="uid">Id:</label>
-                    <input id="uid" name="user"/><br/>
+                    <input id="uid" name="user"/> "peter", virker kun for normal login her<br/>
                     <label for="pwd">Password:</label>
                     <input type="password"
                            id="pwd" name="password"/><br/>
