@@ -26,14 +26,16 @@ function encrypt_decrypt($action, $string) {
     }
     return $output;
 }
-$plain_txt = "16-06-2018-6572";
-echo "Plain Text =" .$plain_txt. "<br>";
+$plain_txt = "6572";
+$dato = "16-06-2018";
+echo "Encrypt method: AES-256-CBC<br>";
+echo "CPR-n = " .$dato . "-" . $plain_txt. "<br>";
 
 $encrypted_txt = encrypt_decrypt('encrypt', $plain_txt);
-echo "Encrypted Text = " .$encrypted_txt. "<br>";
+echo "Encrypted = " .$dato. "-" .$encrypted_txt. "<br>";
 
 $decrypted_txt = encrypt_decrypt('decrypt', $encrypted_txt);
-echo "Decrypted Text =" .$decrypted_txt. "<br>";
+echo "Decrypted cpr-n =" . $dato . "-" . $decrypted_txt. " <br>";
 
 if ( $plain_txt === $decrypted_txt )
     echo "SUCCESS";
