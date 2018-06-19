@@ -1,7 +1,7 @@
 <?php
 session_start();
 $copy = "&copy; NML, 2018";
-$title = 'NMLs Login Demo - Front Page';
+$title = 'Secure mod bruteforce tidslås';
 
 ?><!doctype html>
 <html>
