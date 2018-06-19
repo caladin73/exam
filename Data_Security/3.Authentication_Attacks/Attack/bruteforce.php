@@ -2,11 +2,8 @@
 /*
  * Based on Chris Shiflett, Essential PHP Security, 2005, O'Reilly
  * Chapter 7
- */
 
-
-/*
-
+php bruteforce.php -- localhost exam/Data_Security/Authentication/login0Auth.php darkuids.txt darkpwds.txt darkresults.txt
 
 */
 
@@ -64,5 +61,5 @@ foreach($idsa as $uid) {
         file_put_contents($results, $s);
     }
 }
-echo "\n";
+//echo "\r\n";
 ?>
