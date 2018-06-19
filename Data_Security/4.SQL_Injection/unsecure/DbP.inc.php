@@ -5,7 +5,7 @@
  * @copyright (c) 2018, nml
  * @license http://www.fsf.org/licensing/ GPLv3
  */
-/*
+
 abstract class DbP {
     const DBHOST = 'localhost';
     const DBUSER = 'root';
@@ -15,7 +15,7 @@ abstract class DbP {
 }
 
 
-
+/*
 abstract class DbP {
     const DBHOST = 'localhost';
     const DBUSER = 'maintainer';
@@ -24,7 +24,7 @@ abstract class DbP {
     const DSN = "mysql:host=".self::DBHOST.";dbname=".self::DB;
 }
 
-*/
+
 abstract class DbP {
     const DBHOST = 'localhost';
     const DBUSER = 'reader';
@@ -32,3 +32,4 @@ abstract class DbP {
     const DB = 'yaddasecvariant';
     const DSN = "mysql:host=".self::DBHOST.";dbname=".self::DB;
 }
+*/
